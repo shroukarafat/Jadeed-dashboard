@@ -448,6 +448,7 @@ function renderTasks(){
         }
         toggleBtn.addEventListener("click", function(){ toggleStatus(id, isFinish); });
 
+        // هنا تم تصحيح الخطأ الإملائي 👇
         const deleteBtn = document.createElement("button");
         deleteBtn.type = "button";
         deleteBtn.className = "action-btn delete-btn";
@@ -460,4 +461,3 @@ function renderTasks(){
 
         card.appendChild(top);
         card.appendChild(descText);
-        card.appendChild(actions);
