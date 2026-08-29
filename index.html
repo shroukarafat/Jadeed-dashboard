@@ -9,6 +9,7 @@
 <title>JADEEDTEAM - Task Dashboard</title>
 
 <style>
+
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
 
 * {
@@ -31,7 +32,10 @@ body {
     -webkit-text-size-adjust: 100%;
 }
 
-/* ================= HEADER ================= */
+
+/* =====================================================
+   HEADER
+===================================================== */
 
 .header {
     background: linear-gradient(135deg, #0f766e, #042f2e);
@@ -110,7 +114,10 @@ body {
     box-shadow: 0 0 8px #10b981;
 }
 
-/* ================= MAIN ================= */
+
+/* =====================================================
+   MAIN
+===================================================== */
 
 .container {
     width: 100%;
@@ -119,7 +126,10 @@ body {
     padding: 0 16px;
 }
 
-/* ================= STATS ================= */
+
+/* =====================================================
+   STATS
+===================================================== */
 
 .stats {
     display: grid;
@@ -166,7 +176,10 @@ body {
     color: #10b981;
 }
 
-/* ================= CARD ================= */
+
+/* =====================================================
+   CARD
+===================================================== */
 
 .card {
     background: #fff;
@@ -195,7 +208,10 @@ body {
     color: #64748b;
 }
 
-/* ================= FORM ================= */
+
+/* =====================================================
+   FORM
+===================================================== */
 
 .form-container {
     padding: 20px;
@@ -250,7 +266,10 @@ textarea:focus {
     cursor: not-allowed;
 }
 
-/* ================= TABS & TOOLBAR ================= */
+
+/* =====================================================
+   TOOLBAR
+===================================================== */
 
 .toolbar {
     padding: 15px 20px;
@@ -312,7 +331,10 @@ textarea:focus {
     color: #0f766e;
 }
 
-/* ================= TASKS ================= */
+
+/* =====================================================
+   TASKS
+===================================================== */
 
 .tasks-container {
     padding: 15px 20px;
@@ -338,13 +360,47 @@ textarea:focus {
     border-left-color: #f59e0b;
 }
 
+
+/* =====================================================
+   FINISHED TASK
+===================================================== */
+
 .finish-card {
     border-left-color: #10b981;
     background: #f8fafc;
-    opacity: 0.9;
+
+    /* مهم:
+       خلي الكلام واضح ومايبقاش باهت */
+    opacity: 1;
 }
 
-/* ================= TASK TOP ================= */
+
+/* اسم التاسك بعد الـ Finish */
+
+.finish-card .task-name {
+
+    color: #334155;
+
+    /* الشطب واضح */
+    text-decoration: line-through;
+
+    /* لون الخط */
+    text-decoration-color: #475569;
+
+    /* سمك الخط */
+    text-decoration-thickness: 2.5px;
+
+    /* الشطب يعدي على الحروف بشكل واضح */
+    text-decoration-skip-ink: none;
+
+    /* الكلام يفضل واضح */
+    opacity: 1;
+}
+
+
+/* =====================================================
+   TASK TOP
+===================================================== */
 
 .task-top {
     display: flex;
@@ -361,14 +417,10 @@ textarea:focus {
     word-break: break-word;
 }
 
-.finish-card .task-name {
-    color: #94a3b8;
-    text-decoration: line-through;
-    text-decoration-color: rgba(148, 163, 184, 0.4);
-    text-decoration-thickness: 1.5px;
-}
 
-/* ================= STATUS ================= */
+/* =====================================================
+   STATUS
+===================================================== */
 
 .status {
     display: inline-flex;
@@ -398,7 +450,10 @@ textarea:focus {
     background: currentColor;
 }
 
-/* ================= INFO ================= */
+
+/* =====================================================
+   INFO
+===================================================== */
 
 .info-text {
     font-size: 14px;
@@ -418,7 +473,10 @@ textarea:focus {
     color: #0f766e;
 }
 
-/* ================= ACTIONS ================= */
+
+/* =====================================================
+   ACTIONS
+===================================================== */
 
 .task-actions {
     display: flex;
@@ -466,7 +524,10 @@ textarea:focus {
     color: #991b1b;
 }
 
-/* ================= MODAL ================= */
+
+/* =====================================================
+   MODAL
+===================================================== */
 
 .modal-overlay {
     display: none;
@@ -579,7 +640,10 @@ textarea:focus {
     background: #e2e8f0;
 }
 
-/* ================= EMPTY ================= */
+
+/* =====================================================
+   EMPTY
+===================================================== */
 
 .empty {
     text-align: center;
@@ -598,7 +662,10 @@ textarea:focus {
     font-size: 18px;
 }
 
-/* ================= MESSAGE ================= */
+
+/* =====================================================
+   MESSAGE
+===================================================== */
 
 #message {
     position: fixed;
@@ -625,7 +692,10 @@ textarea:focus {
     color: #fff;
 }
 
-/* ================= MOBILE ================= */
+
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width: 768px) {
 
@@ -736,14 +806,20 @@ textarea:focus {
         min-height: 200px;
     }
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- ================= HEADER ================= -->
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header class="header">
+
     <div class="header-content">
 
         <div class="brand">
@@ -756,7 +832,10 @@ textarea:focus {
             >
 
             <div class="brand-text">
-                <h1>JADEEDTEAM</h1>
+
+                <h1>
+                    JADEEDTEAM
+                </h1>
 
                 <p class="subtitle">
                     Task Management & Follow-up
@@ -768,39 +847,55 @@ textarea:focus {
                     &
                     <strong>Mr. Ahmed</strong>
                 </p>
+
             </div>
 
         </div>
 
+
         <div class="live-status">
+
             <span class="live-dot"></span>
+
             Live
+
         </div>
 
     </div>
+
 </header>
 
 
-<!-- ================= MAIN ================= -->
+<!-- =====================================================
+     MAIN
+===================================================== -->
 
 <main class="container">
+
 
     <!-- ================= STATS ================= -->
 
     <div class="stats">
 
+
         <div class="stat-card">
+
             <div class="stat-title">
                 Total Tasks
             </div>
 
-            <div class="stat-number" id="totalTasks">
+            <div
+                class="stat-number"
+                id="totalTasks"
+            >
                 0
             </div>
+
         </div>
 
 
         <div class="stat-card">
+
             <div class="stat-title">
                 Pending
             </div>
@@ -811,10 +906,12 @@ textarea:focus {
             >
                 0
             </div>
+
         </div>
 
 
         <div class="stat-card">
+
             <div class="stat-title">
                 Finished
             </div>
@@ -825,7 +922,9 @@ textarea:focus {
             >
                 0
             </div>
+
         </div>
+
 
     </div>
 
@@ -833,6 +932,7 @@ textarea:focus {
     <!-- ================= ADD TASK ================= -->
 
     <div class="card">
+
 
         <div class="card-header">
 
@@ -849,12 +949,14 @@ textarea:focus {
 
         <div class="form-container">
 
+
             <input
                 type="text"
                 id="taskName"
                 placeholder="Task Name"
                 autocomplete="off"
             >
+
 
             <input
                 type="text"
@@ -863,12 +965,14 @@ textarea:focus {
                 autocomplete="off"
             >
 
+
             <input
                 type="text"
                 id="taskAssignee"
                 placeholder="Assignee"
                 autocomplete="off"
             >
+
 
             <button
                 type="button"
@@ -877,6 +981,7 @@ textarea:focus {
             >
                 ＋ Add Task
             </button>
+
 
         </div>
 
@@ -887,9 +992,12 @@ textarea:focus {
 
     <div class="card">
 
+
         <div class="toolbar">
 
+
             <div class="filter-tabs">
+
 
                 <button
                     class="filter-btn active"
@@ -903,6 +1011,7 @@ textarea:focus {
                     >
                         0
                     </span>
+
                 </button>
 
 
@@ -918,6 +1027,7 @@ textarea:focus {
                     >
                         0
                     </span>
+
                 </button>
 
 
@@ -933,7 +1043,9 @@ textarea:focus {
                     >
                         0
                     </span>
+
                 </button>
+
 
             </div>
 
@@ -946,6 +1058,7 @@ textarea:focus {
                 autocomplete="off"
             >
 
+
         </div>
 
 
@@ -954,25 +1067,33 @@ textarea:focus {
             class="tasks-container"
         ></div>
 
+
     </div>
+
 
 </main>
 
 
-<!-- ================= EDIT MODAL ================= -->
+<!-- =====================================================
+     EDIT MODAL
+===================================================== -->
 
 <div
     id="editModal"
     class="modal-overlay"
 >
 
+
     <div class="modal-content">
 
+
         <div class="modal-header">
+
 
             <h3>
                 👁 View & Edit Task
             </h3>
+
 
             <button
                 type="button"
@@ -981,6 +1102,7 @@ textarea:focus {
             >
                 ×
             </button>
+
 
         </div>
 
@@ -995,6 +1117,7 @@ textarea:focus {
             Task Name
         </label>
 
+
         <input
             type="text"
             id="modalTaskName"
@@ -1005,6 +1128,7 @@ textarea:focus {
         <label class="modal-label">
             Description
         </label>
+
 
         <textarea
             id="modalTaskDesc"
@@ -1017,6 +1141,7 @@ textarea:focus {
             Assignee
         </label>
 
+
         <input
             type="text"
             id="modalTaskAssignee"
@@ -1028,6 +1153,7 @@ textarea:focus {
             💬 Comment / Follow-up
         </label>
 
+
         <textarea
             id="modalTaskComment"
             class="large-comment"
@@ -1037,6 +1163,7 @@ textarea:focus {
 
         <div class="modal-actions">
 
+
             <button
                 type="button"
                 class="cancel-btn"
@@ -1044,6 +1171,7 @@ textarea:focus {
             >
                 Cancel
             </button>
+
 
             <button
                 type="button"
@@ -1053,19 +1181,25 @@ textarea:focus {
                 💾 Save Changes
             </button>
 
+
         </div>
+
 
     </div>
 
 </div>
 
 
-<!-- ================= MESSAGE ================= -->
+<!-- =====================================================
+     MESSAGE
+===================================================== -->
 
 <div id="message"></div>
 
 
-<!-- ================= FIREBASE ================= -->
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
 
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 
@@ -1105,6 +1239,7 @@ const firebaseConfig = {
 
     appId:
         "1:92287971638:web:91b57c91032e7311864397"
+
 };
 
 
@@ -1116,22 +1251,33 @@ try {
 
     firebase.initializeApp(firebaseConfig);
 
-} catch(error) {
+}
 
-    console.error("Firebase initialization error:", error);
+catch(error) {
+
+    console.error(
+        "Firebase initialization error:",
+        error
+    );
 
     showMessage(
-        "Firebase initialization error: " + error.message,
+        "Firebase initialization error: " +
+        error.message,
         "error"
     );
 
     return;
+
 }
 
 
-const db = firebase.database();
+const db =
+    firebase.database();
 
-const tasksRef = db.ref("tasks");
+
+const tasksRef =
+    db.ref("tasks");
+
 
 let allTasks = {};
 
@@ -1193,32 +1339,42 @@ searchInput.addEventListener(
 );
 
 
-filterButtons.forEach(function(btn){
+filterButtons.forEach(
+    function(btn){
 
-    btn.addEventListener(
-        "click",
-        function(){
+        btn.addEventListener(
+            "click",
+            function(){
 
-            filterButtons.forEach(function(button){
+                filterButtons.forEach(
+                    function(button){
 
-                button.classList.remove("active");
+                        button.classList.remove(
+                            "active"
+                        );
 
-            });
-
-
-            this.classList.add("active");
-
-
-            currentFilter =
-                this.getAttribute("data-filter");
+                    }
+                );
 
 
-            renderTasks();
+                this.classList.add(
+                    "active"
+                );
 
-        }
-    );
 
-});
+                currentFilter =
+                    this.getAttribute(
+                        "data-filter"
+                    );
+
+
+                renderTasks();
+
+            }
+        );
+
+    }
+);
 
 
 closeModalBtn.addEventListener(
@@ -1246,6 +1402,7 @@ tasksRef.on(
         allTasks =
             snapshot.val() || {};
 
+
         console.log(
             "Firebase tasks loaded:",
             allTasks
@@ -1258,6 +1415,7 @@ tasksRef.on(
 
     },
 
+
     function(error){
 
         console.error(
@@ -1267,7 +1425,8 @@ tasksRef.on(
 
 
         showMessage(
-            "Firebase Error: " + error.message,
+            "Firebase Error: " +
+            error.message,
             "error"
         );
 
@@ -1285,8 +1444,10 @@ function addTask(){
     const name =
         taskNameInput.value.trim();
 
+
     const desc =
         taskDescInput.value.trim();
+
 
     const assignee =
         taskAssigneeInput.value.trim();
@@ -1302,10 +1463,13 @@ function addTask(){
         taskNameInput.focus();
 
         return;
+
     }
 
 
-    addButton.disabled = true;
+    addButton.disabled =
+        true;
+
 
     addButton.textContent =
         "Adding...";
@@ -1313,15 +1477,20 @@ function addTask(){
 
     const newTask = {
 
-        name: name,
+        name:
+            name,
 
-        desc: desc,
+        desc:
+            desc,
 
-        assignee: assignee,
+        assignee:
+            assignee,
 
-        comment: "",
+        comment:
+            "",
 
-        completed: false,
+        completed:
+            false,
 
         createdAt:
             firebase.database.ServerValue.TIMESTAMP
@@ -1329,48 +1498,59 @@ function addTask(){
     };
 
 
-    tasksRef.push(newTask)
+    tasksRef
+        .push(newTask)
 
-        .then(function(){
+        .then(
+            function(){
 
-            taskNameInput.value = "";
+                taskNameInput.value =
+                    "";
 
-            taskDescInput.value = "";
+                taskDescInput.value =
+                    "";
 
-            taskAssigneeInput.value = "";
-
-
-            showMessage(
-                "Task added successfully ✓",
-                "success"
-            );
-
-        })
-
-        .catch(function(error){
-
-            console.error(
-                "Add task error:",
-                error
-            );
+                taskAssigneeInput.value =
+                    "";
 
 
-            showMessage(
-                "Could not add task: " +
-                error.message,
-                "error"
-            );
+                showMessage(
+                    "Task added successfully ✓",
+                    "success"
+                );
 
-        })
+            }
+        )
 
-        .finally(function(){
+        .catch(
+            function(error){
 
-            addButton.disabled = false;
+                console.error(
+                    "Add task error:",
+                    error
+                );
 
-            addButton.textContent =
-                "＋ Add Task";
 
-        });
+                showMessage(
+                    "Could not add task: " +
+                    error.message,
+                    "error"
+                );
+
+            }
+        )
+
+        .finally(
+            function(){
+
+                addButton.disabled =
+                    false;
+
+                addButton.textContent =
+                    "＋ Add Task";
+
+            }
+        );
 
 }
 
@@ -1381,372 +1561,443 @@ function addTask(){
 
 function renderTasks(){
 
-    tasksContainer.innerHTML = "";
+    tasksContainer.innerHTML =
+        "";
 
 
     const search =
         searchInput.value
-        .toLowerCase()
-        .trim();
+            .toLowerCase()
+            .trim();
 
 
     const entries =
         Object.entries(allTasks)
-        .sort(function(a,b){
-
-            return (
-                (b[1].createdAt || 0) -
-                (a[1].createdAt || 0)
-            );
-
-        });
-
-
-    let visible = 0;
-
-
-    entries.forEach(function(item){
-
-        const id =
-            item[0];
-
-        const task =
-            item[1] || {};
-
-
-        const isFinish =
-            task.completed === true;
-
-
-        const searchable =
-
-            String(task.name || "") +
-            " " +
-            String(task.desc || "") +
-            " " +
-            String(task.assignee || "") +
-            " " +
-            String(task.comment || "");
-
-
-        if(
-            search &&
-            searchable
-                .toLowerCase()
-                .indexOf(search) === -1
-        ){
-
-            return;
-
-        }
-
-
-        if(
-            currentFilter === "pending" &&
-            isFinish
-        ){
-
-            return;
-
-        }
-
-
-        if(
-            currentFilter === "finish" &&
-            !isFinish
-        ){
-
-            return;
-
-        }
-
-
-        visible++;
-
-
-        /* ================= CARD ================= */
-
-        const card =
-            document.createElement("div");
-
-
-        card.className =
-            "task-card " +
-            (
-                isFinish
-                ? "finish-card"
-                : "pending-card"
-            );
-
-
-        /* ================= TOP ================= */
-
-        const top =
-            document.createElement("div");
-
-
-        top.className =
-            "task-top";
-
-
-        const name =
-            document.createElement("div");
-
-
-        name.className =
-            "task-name";
-
-
-        name.textContent =
-            task.name || "-";
-
-
-        const status =
-            document.createElement("span");
-
-
-        status.className =
-            isFinish
-            ? "status finish"
-            : "status pending";
-
-
-        status.innerHTML =
-            '<span class="status-dot"></span> ' +
-            (
-                isFinish
-                ? "Finished ✓"
-                : "Pending ⏳"
-            );
-
-
-        top.appendChild(name);
-
-        top.appendChild(status);
-
-
-        /* ================= DESCRIPTION ================= */
-
-        const descText =
-            document.createElement("div");
-
-
-        descText.className =
-            "info-text";
-
-
-        const desc =
-            String(task.desc || "");
-
-
-        if(desc){
-
-            descText.textContent =
-                desc.length > 120
-                ? desc.substring(0,120) + "..."
-                : desc;
-
-        } else {
-
-            descText.textContent =
-                "No description provided.";
-
-        }
-
-
-        /* ================= ASSIGNEE ================= */
-
-        const assigneeText =
-            document.createElement("div");
-
-
-        assigneeText.className =
-            "assignee-text";
-
-
-        if(task.assignee){
-
-            assigneeText.innerHTML =
-                "👤 Assigned to: <strong>" +
-                escapeHtml(task.assignee) +
-                "</strong>";
-
-        } else {
-
-            assigneeText.textContent =
-                "👤 No assignee";
-
-        }
-
-
-        /* ================= ACTIONS ================= */
-
-        const actions =
-            document.createElement("div");
-
-
-        actions.className =
-            "task-actions";
-
-
-        /* VIEW BUTTON */
-
-        const viewBtn =
-            document.createElement("button");
-
-
-        viewBtn.type =
-            "button";
-
-
-        viewBtn.className =
-            "action-btn view-btn";
-
-
-        viewBtn.textContent =
-            "👁 View & Edit";
-
-
-        viewBtn.addEventListener(
-            "click",
-            function(){
-
-                openModal(
-                    id,
-                    task
+        .sort(
+            function(a,b){
+
+                return (
+                    (b[1].createdAt || 0) -
+                    (a[1].createdAt || 0)
                 );
 
             }
         );
 
 
-        /* FINISH / REOPEN */
-
-        const toggleBtn =
-            document.createElement("button");
+    let visible =
+        0;
 
 
-        toggleBtn.type =
-            "button";
+    entries.forEach(
+        function(item){
+
+            const id =
+                item[0];
 
 
-        if(isFinish){
-
-            toggleBtn.className =
-                "action-btn reopen-btn";
+            const task =
+                item[1] || {};
 
 
-            toggleBtn.textContent =
-                "🔄 Reopen";
-
-        } else {
-
-            toggleBtn.className =
-                "action-btn done-btn";
+            const isFinish =
+                task.completed === true;
 
 
-            toggleBtn.textContent =
-                "✓ Finish";
+            const searchable =
 
-        }
+                String(task.name || "") +
+                " " +
+                String(task.desc || "") +
+                " " +
+                String(task.assignee || "") +
+                " " +
+                String(task.comment || "");
 
 
-        toggleBtn.addEventListener(
-            "click",
-            function(){
+            if(
+                search &&
+                searchable
+                    .toLowerCase()
+                    .indexOf(search) === -1
+            ){
 
-                toggleStatus(
-                    id,
-                    isFinish
+                return;
+
+            }
+
+
+            if(
+                currentFilter === "pending" &&
+                isFinish
+            ){
+
+                return;
+
+            }
+
+
+            if(
+                currentFilter === "finish" &&
+                !isFinish
+            ){
+
+                return;
+
+            }
+
+
+            visible++;
+
+
+            /* ================= CARD ================= */
+
+            const card =
+                document.createElement(
+                    "div"
                 );
 
-            }
-        );
 
-
-        /* DELETE */
-
-        const deleteBtn =
-            document.createElement("button");
-
-
-        deleteBtn.type =
-            "button";
-
-
-        deleteBtn.className =
-            "action-btn delete-btn";
-
-
-        deleteBtn.textContent =
-            "🗑 Delete";
-
-
-        deleteBtn.addEventListener(
-            "click",
-            function(){
-
-                deleteTask(id);
-
-            }
-        );
-
-
-        actions.appendChild(viewBtn);
-
-        actions.appendChild(toggleBtn);
-
-        actions.appendChild(deleteBtn);
-
-
-        /* ================= COMMENT PREVIEW ================= */
-
-        if(task.comment){
-
-            const commentPreview =
-                document.createElement("div");
-
-
-            commentPreview.style.cssText =
-                "margin-top:10px;" +
-                "padding:10px;" +
-                "background:#f8fafc;" +
-                "border-radius:8px;" +
-                "font-size:12px;" +
-                "color:#64748b;" +
-                "line-height:1.6;" +
-                "white-space:pre-wrap;" +
-                "word-break:break-word;";
-
-
-            commentPreview.textContent =
-                "💬 " +
+            card.className =
+                "task-card " +
                 (
-                    String(task.comment).length > 150
-                    ? String(task.comment).substring(0,150) + "..."
-                    : String(task.comment)
+                    isFinish
+                    ? "finish-card"
+                    : "pending-card"
                 );
 
 
-            card.appendChild(commentPreview);
+            /* ================= TOP ================= */
+
+            const top =
+                document.createElement(
+                    "div"
+                );
+
+
+            top.className =
+                "task-top";
+
+
+            const name =
+                document.createElement(
+                    "div"
+                );
+
+
+            name.className =
+                "task-name";
+
+
+            name.textContent =
+                task.name || "-";
+
+
+            const status =
+                document.createElement(
+                    "span"
+                );
+
+
+            status.className =
+                isFinish
+                ? "status finish"
+                : "status pending";
+
+
+            status.innerHTML =
+                '<span class="status-dot"></span> ' +
+                (
+                    isFinish
+                    ? "Finished ✓"
+                    : "Pending ⏳"
+                );
+
+
+            top.appendChild(
+                name
+            );
+
+
+            top.appendChild(
+                status
+            );
+
+
+            /* ================= DESCRIPTION ================= */
+
+            const descText =
+                document.createElement(
+                    "div"
+                );
+
+
+            descText.className =
+                "info-text";
+
+
+            const desc =
+                String(task.desc || "");
+
+
+            if(desc){
+
+                descText.textContent =
+                    desc.length > 120
+                    ? desc.substring(0,120) + "..."
+                    : desc;
+
+            }
+
+            else {
+
+                descText.textContent =
+                    "No description provided.";
+
+            }
+
+
+            /* ================= ASSIGNEE ================= */
+
+            const assigneeText =
+                document.createElement(
+                    "div"
+                );
+
+
+            assigneeText.className =
+                "assignee-text";
+
+
+            if(task.assignee){
+
+                assigneeText.innerHTML =
+                    "👤 Assigned to: <strong>" +
+                    escapeHtml(
+                        task.assignee
+                    ) +
+                    "</strong>";
+
+            }
+
+            else {
+
+                assigneeText.textContent =
+                    "👤 No assignee";
+
+            }
+
+
+            /* ================= ACTIONS ================= */
+
+            const actions =
+                document.createElement(
+                    "div"
+                );
+
+
+            actions.className =
+                "task-actions";
+
+
+            /* VIEW */
+
+            const viewBtn =
+                document.createElement(
+                    "button"
+                );
+
+
+            viewBtn.type =
+                "button";
+
+
+            viewBtn.className =
+                "action-btn view-btn";
+
+
+            viewBtn.textContent =
+                "👁 View & Edit";
+
+
+            viewBtn.addEventListener(
+                "click",
+                function(){
+
+                    openModal(
+                        id,
+                        task
+                    );
+
+                }
+            );
+
+
+            /* FINISH / REOPEN */
+
+            const toggleBtn =
+                document.createElement(
+                    "button"
+                );
+
+
+            toggleBtn.type =
+                "button";
+
+
+            if(isFinish){
+
+                toggleBtn.className =
+                    "action-btn reopen-btn";
+
+
+                toggleBtn.textContent =
+                    "🔄 Reopen";
+
+            }
+
+            else {
+
+                toggleBtn.className =
+                    "action-btn done-btn";
+
+
+                toggleBtn.textContent =
+                    "✓ Finish";
+
+            }
+
+
+            toggleBtn.addEventListener(
+                "click",
+                function(){
+
+                    toggleStatus(
+                        id,
+                        isFinish
+                    );
+
+                }
+            );
+
+
+            /* DELETE */
+
+            const deleteBtn =
+                document.createElement(
+                    "button"
+                );
+
+
+            deleteBtn.type =
+                "button";
+
+
+            deleteBtn.className =
+                "action-btn delete-btn";
+
+
+            deleteBtn.textContent =
+                "🗑 Delete";
+
+
+            deleteBtn.addEventListener(
+                "click",
+                function(){
+
+                    deleteTask(
+                        id
+                    );
+
+                }
+            );
+
+
+            actions.appendChild(
+                viewBtn
+            );
+
+
+            actions.appendChild(
+                toggleBtn
+            );
+
+
+            actions.appendChild(
+                deleteBtn
+            );
+
+
+            /* ================= COMMENT ================= */
+
+            if(task.comment){
+
+                const commentPreview =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                commentPreview.style.cssText =
+                    "margin-top:10px;" +
+                    "padding:10px;" +
+                    "background:#f8fafc;" +
+                    "border-radius:8px;" +
+                    "font-size:12px;" +
+                    "color:#64748b;" +
+                    "line-height:1.6;" +
+                    "white-space:pre-wrap;" +
+                    "word-break:break-word;";
+
+
+                commentPreview.textContent =
+                    "💬 " +
+                    (
+                        String(task.comment).length > 150
+
+                        ? String(task.comment)
+                            .substring(0,150) +
+                            "..."
+
+                        : String(task.comment)
+                    );
+
+
+                card.appendChild(
+                    commentPreview
+                );
+
+            }
+
+
+            /* ================= APPEND ================= */
+
+            card.appendChild(
+                top
+            );
+
+
+            card.appendChild(
+                descText
+            );
+
+
+            card.appendChild(
+                assigneeText
+            );
+
+
+            card.appendChild(
+                actions
+            );
+
+
+            tasksContainer.appendChild(
+                card
+            );
 
         }
-
-
-        /* ================= APPEND ================= */
-
-        card.appendChild(top);
-
-        card.appendChild(descText);
-
-        card.appendChild(assigneeText);
-
-        card.appendChild(actions);
-
-
-        tasksContainer.appendChild(card);
-
-    });
+    );
 
 
     /* ================= EMPTY ================= */
@@ -1754,7 +2005,9 @@ function renderTasks(){
     if(visible === 0){
 
         const empty =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
 
         empty.className =
@@ -1768,7 +2021,9 @@ function renderTasks(){
         `;
 
 
-        tasksContainer.appendChild(empty);
+        tasksContainer.appendChild(
+            empty
+        );
 
     }
 
@@ -1782,7 +2037,9 @@ function renderTasks(){
 function updateStats(){
 
     const entries =
-        Object.values(allTasks);
+        Object.values(
+            allTasks
+        );
 
 
     const total =
@@ -1790,14 +2047,16 @@ function updateStats(){
 
 
     const finished =
-        entries.filter(function(task){
+        entries.filter(
+            function(task){
 
-            return (
-                task &&
-                task.completed === true
-            );
+                return (
+                    task &&
+                    task.completed === true
+                );
 
-        }).length;
+            }
+        ).length;
 
 
     const pending =
@@ -1867,35 +2126,39 @@ function toggleStatus(
 
         })
 
-        .then(function(){
+        .then(
+            function(){
 
-            showMessage(
+                showMessage(
 
-                newStatus
-                ? "Task finished ✓"
-                : "Task reopened ✓",
+                    newStatus
+                    ? "Task finished ✓"
+                    : "Task reopened ✓",
 
-                "success"
+                    "success"
 
-            );
+                );
 
-        })
+            }
+        )
 
-        .catch(function(error){
+        .catch(
+            function(error){
 
-            console.error(
-                "Status update error:",
-                error
-            );
+                console.error(
+                    "Status update error:",
+                    error
+                );
 
 
-            showMessage(
-                "Could not update task: " +
-                error.message,
-                "error"
-            );
+                showMessage(
+                    "Could not update task: " +
+                    error.message,
+                    "error"
+                );
 
-        });
+            }
+        );
 
 }
 
@@ -1904,7 +2167,9 @@ function toggleStatus(
    DELETE TASK
 ===================================================== */
 
-function deleteTask(id){
+function deleteTask(
+    id
+){
 
     const confirmed =
         confirm(
@@ -1923,30 +2188,34 @@ function deleteTask(id){
         .child(id)
         .remove()
 
-        .then(function(){
+        .then(
+            function(){
 
-            showMessage(
-                "Task deleted successfully ✓",
-                "success"
-            );
+                showMessage(
+                    "Task deleted successfully ✓",
+                    "success"
+                );
 
-        })
+            }
+        )
 
-        .catch(function(error){
+        .catch(
+            function(error){
 
-            console.error(
-                "Delete error:",
-                error
-            );
+                console.error(
+                    "Delete error:",
+                    error
+                );
 
 
-            showMessage(
-                "Could not delete task: " +
-                error.message,
-                "error"
-            );
+                showMessage(
+                    "Could not delete task: " +
+                    error.message,
+                    "error"
+                );
 
-        });
+            }
+        );
 
 }
 
@@ -2039,22 +2308,19 @@ saveModalBtn.addEventListener(
         const name =
             document.getElementById(
                 "modalTaskName"
-            ).value
-            .trim();
+            ).value.trim();
 
 
         const desc =
             document.getElementById(
                 "modalTaskDesc"
-            ).value
-            .trim();
+            ).value.trim();
 
 
         const assignee =
             document.getElementById(
                 "modalTaskAssignee"
-            ).value
-            .trim();
+            ).value.trim();
 
 
         const comment =
@@ -2087,64 +2353,74 @@ saveModalBtn.addEventListener(
             .child(id)
             .update({
 
-                name: name,
+                name:
+                    name,
 
-                desc: desc,
+                desc:
+                    desc,
 
-                assignee: assignee,
+                assignee:
+                    assignee,
 
-                comment: comment,
+                comment:
+                    comment,
 
                 updatedAt:
                     firebase.database.ServerValue.TIMESTAMP
 
             })
 
-            .then(function(){
+            .then(
+                function(){
 
-                showMessage(
-                    "Task updated successfully ✓",
-                    "success"
-                );
-
-
-                closeModal();
-
-            })
-
-            .catch(function(error){
-
-                console.error(
-                    "Save error:",
-                    error
-                );
+                    showMessage(
+                        "Task updated successfully ✓",
+                        "success"
+                    );
 
 
-                showMessage(
-                    "Could not update task: " +
-                    error.message,
-                    "error"
-                );
+                    closeModal();
 
-            })
+                }
+            )
 
-            .finally(function(){
+            .catch(
+                function(error){
 
-                saveModalBtn.disabled =
-                    false;
+                    console.error(
+                        "Save error:",
+                        error
+                    );
 
 
-                saveModalBtn.textContent =
-                    "💾 Save Changes";
+                    showMessage(
+                        "Could not update task: " +
+                        error.message,
+                        "error"
+                    );
 
-            });
+                }
+            )
+
+            .finally(
+                function(){
+
+                    saveModalBtn.disabled =
+                        false;
+
+
+                    saveModalBtn.textContent =
+                        "💾 Save Changes";
+
+                }
+            );
 
     }
 );
 
 
 /* =====================================================
-   CLOSE MODAL WHEN CLICK OUTSIDE
+   CLICK OUTSIDE MODAL
 ===================================================== */
 
 editModal.addEventListener(
@@ -2164,7 +2440,7 @@ editModal.addEventListener(
 
 
 /* =====================================================
-   ESC CLOSE MODAL
+   ESC CLOSE
 ===================================================== */
 
 document.addEventListener(
@@ -2173,7 +2449,9 @@ document.addEventListener(
 
         if(
             e.key === "Escape" &&
-            editModal.classList.contains("active")
+            editModal.classList.contains(
+                "active"
+            )
         ){
 
             closeModal();
@@ -2185,7 +2463,7 @@ document.addEventListener(
 
 
 /* =====================================================
-   ENTER TO ADD TASK
+   ENTER TO ADD
 ===================================================== */
 
 taskNameInput.addEventListener(
@@ -2252,7 +2530,9 @@ function showMessage(
    ESCAPE HTML
 ===================================================== */
 
-function escapeHtml(value){
+function escapeHtml(
+    value
+){
 
     return String(value)
 
