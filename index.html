@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -8,515 +8,538 @@
 <title>JADEEDTEAM - Task Dashboard</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
-
-* {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;width:100%;min-height:100%}
+body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+    background:#f3f7f7;color:#17252a;
+    -webkit-text-size-adjust:100%;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100%;
+/* HEADER */
+.header{
+    background:linear-gradient(135deg,#0b3839,#176b68);
+    color:#fff;padding:15px 16px;
+    box-shadow:0 5px 18px rgba(0,0,0,.13)
+}
+.header-content{
+    max-width:1100px;margin:auto;display:flex;
+    align-items:center;justify-content:space-between;gap:12px
+}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.company-logo{
+    width:52px;height:52px;min-width:52px;max-width:52px;
+    object-fit:contain;background:#fff;border-radius:10px;
+    padding:4px;flex-shrink:0
+}
+.brand-text{min-width:0}
+.brand-text h1{margin:0;font-size:23px;line-height:1.2;letter-spacing:.6px}
+.subtitle{margin:3px 0;font-size:12px;opacity:.9}
+.follow-up{margin:0;font-size:10px;opacity:.8}
+.live-status{
+    display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.14);
+    padding:7px 10px;border-radius:20px;font-size:10px;font-weight:700;flex-shrink:0
+}
+.live-dot{width:7px;height:7px;background:#4ade80;border-radius:50%;box-shadow:0 0 0 3px rgba(74,222,128,.16)}
+
+/* MAIN */
+.container{width:100%;max-width:1100px;margin:18px auto;padding:0 14px}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:15px}
+.stat-card{
+    background:#fff;border:1px solid #e3eeee;border-radius:13px;
+    padding:13px;box-shadow:0 3px 10px rgba(0,0,0,.045)
+}
+.stat-title{font-size:11px;color:#6b7280;font-weight:600}
+.stat-number{font-size:24px;font-weight:800;margin-top:4px}
+.total-stat{border-top:4px solid #176b68}
+.pending-stat{border-top:4px solid #f59e0b}
+.finished-stat{border-top:4px solid #16a34a}
+
+/* CARD */
+.card{
+    background:#fff;border:1px solid #e3eeee;border-radius:14px;
+    box-shadow:0 3px 13px rgba(0,0,0,.05);margin-bottom:15px;overflow:hidden
+}
+.card-header{padding:16px;border-bottom:1px solid #edf2f2}
+.card-header h2{margin:0;font-size:17px}
+.card-header p{margin:4px 0 0;color:#718096;font-size:11px}
+
+/* FORM */
+.form-container{
+    padding:13px;display:grid;grid-template-columns:1fr 1.5fr 1fr auto;gap:9px
+}
+input,textarea,select{
+    width:100%;padding:11px 12px;border:1px solid #d9e2e2;
+    border-radius:8px;font-family:inherit;font-size:13px;outline:none;
+    background:#fff;color:#243238
+}
+input:focus,textarea:focus,select:focus{
+    border-color:#176b68;box-shadow:0 0 0 3px rgba(23,107,104,.09)
+}
+.add-btn{
+    background:linear-gradient(135deg,#176b68,#0f5553);color:#fff;
+    border:0;border-radius:8px;padding:11px 18px;cursor:pointer;
+    font-weight:700;font-size:13px;white-space:nowrap
+}
+.add-btn:disabled{opacity:.65;cursor:not-allowed}
+
+/* TOOLBAR */
+.toolbar{
+    padding:12px;display:flex;gap:9px;border-bottom:1px solid #edf2f2
+}
+.search-box{flex:1}
+.filter{width:155px}
+
+/* TASK CARDS */
+.tasks-container{padding:10px}
+.task-card{
+    position:relative;background:#fff;border:1px solid #e2eaea;
+    border-left:5px solid #f59e0b;border-radius:12px;
+    padding:14px;margin-bottom:10px;
+    box-shadow:0 3px 12px rgba(15,61,62,.06);
+    transition:.18s ease
+}
+.task-card:last-child{margin-bottom:0}
+.task-card:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(15,61,62,.09)}
+.pending-card{background:#fffdf8}
+.completed-card{
+    border-left-color:#16a34a;background:#f2fbf5;
+    box-shadow:0 3px 12px rgba(22,163,74,.08)
+}
+.completed-card::after{
+    content:"✓ FINISHED";position:absolute;right:12px;bottom:10px;
+    font-size:10px;font-weight:800;color:#15803d;opacity:.72
 }
 
-body {
-    font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-    background: #f4f7f8;
-    color: #334155;
-    -webkit-text-size-adjust: 100%;
+.task-top{
+    display:flex;align-items:flex-start;justify-content:space-between;
+    gap:10px;margin-bottom:10px
+}
+.task-name{
+    font-size:16px;font-weight:800;line-height:1.35;
+    color:#17252a;word-break:break-word;overflow-wrap:anywhere
+}
+.completed-card .task-name{
+    color:#166534;
+    text-decoration:line-through;
+    text-decoration-thickness:2px;
+    text-decoration-color:#15803d;
+}
+.completed-card .task-name{color:#166534}
+.status{
+    display:inline-flex;align-items:center;gap:6px;padding:6px 9px;
+    border-radius:20px;font-size:10px;font-weight:800;white-space:nowrap;flex-shrink:0
+}
+.pending{background:#fff3cd;color:#b45309}
+.completed{background:#dcfce7;color:#15803d}
+.status-dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+
+.task-info{display:grid;grid-template-columns:2fr 1fr;gap:8px;margin-bottom:10px}
+.info-box{
+    background:#f7faf9;border:1px solid #e8eeee;border-radius:9px;padding:10px
+}
+.completed-card .info-box{background:#edf8f0;border-color:#d9eddd}
+.info-title{
+    font-size:9px;text-transform:uppercase;letter-spacing:.5px;
+    color:#718096;font-weight:800;margin-bottom:4px
+}
+.info-text{
+    font-size:13px;line-height:1.55;font-weight:500;
+    color:#37474f;white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere
 }
 
-/* ================= HEADER ================= */
-.header {
-    background: linear-gradient(135deg, #0f766e, #042f2e);
-    color: #fff;
-    padding: 16px;
-    box-shadow: 0 4px 20px rgba(15, 118, 110, 0.25);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+.comment-preview{
+    margin-bottom:10px;padding:9px 10px;border-radius:9px;
+    background:#f5f8ff;border:1px solid #e1e8f7
 }
-
-.header-content {
-    max-width: 1100px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
+.comment-preview-title{font-size:9px;text-transform:uppercase;color:#64748b;font-weight:800;margin-bottom:3px}
+.comment-preview-text{
+    font-size:12px;line-height:1.6;color:#475569;
+    white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere;
+    max-height:180px;overflow:auto
 }
+.no-comment{color:#94a3b8;font-style:italic}
 
-.brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
-.company-logo {
-    width: 50px; height: 50px; background: #fff; border-radius: 12px;
-    padding: 4px; object-fit: contain; flex-shrink: 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+/* ACTIONS */
+.task-actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}
+.edit-btn{background:#fef3c7;color:#92400e}
+.history-btn{background:#f3e8ff;color:#7e22ce}
+.history-section{margin-top:16px;border-top:1px solid #edf2f2;padding-top:14px}
+.history-header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px}
+.history-title{font-size:12px;font-weight:800;color:#334155}
+.history-count{font-size:10px;background:#eef2f2;border-radius:20px;padding:4px 8px;color:#64748b;font-weight:800}
+.history-list{display:flex;flex-direction:column;gap:8px}
+.history-item{border:1px solid #e5e7eb;border-radius:10px;background:#f8fafc;overflow:hidden}
+.history-item summary{cursor:pointer;list-style:none;padding:10px 11px;font-size:11px;font-weight:800;color:#475569}
+.history-item summary::-webkit-details-marker{display:none}
+.history-item summary:before{content:"＋";display:inline-block;margin-right:7px;color:#7e22ce}
+.history-item[open] summary:before{content:"−"}
+.history-content{padding:0 11px 11px;border-top:1px solid #e5e7eb}
+.history-meta{font-size:10px;color:#64748b;margin:8px 0}
+.history-change{padding:8px 0;border-bottom:1px dashed #e2e8f0}
+.history-change:last-child{border-bottom:0}
+.history-field{font-size:9px;text-transform:uppercase;letter-spacing:.4px;color:#64748b;font-weight:800;margin-bottom:3px}
+.history-old{font-size:11px;color:#991b1b;background:#fff1f2;border-radius:6px;padding:5px;margin-bottom:4px;white-space:pre-wrap;word-break:break-word}
+.history-new{font-size:11px;color:#166534;background:#f0fdf4;border-radius:6px;padding:5px;white-space:pre-wrap;word-break:break-word}
+.edit-grid{display:grid;grid-template-columns:1fr;gap:7px;margin-bottom:11px}
+.edit-grid textarea{min-height:115px;resize:vertical}
+.edit-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
+.save-edit-btn{background:#176b68;color:#fff}
+.cancel-edit-btn{background:#e2e8f0;color:#475569}
+.view-finished-note{font-size:10px;color:#64748b;margin:0 0 12px;line-height:1.5}
+@media(max-width:700px){
+    .edit-actions{grid-template-columns:1fr}
 }
-
-.brand-text h1 { margin: 0; font-size: 22px; line-height: 1.2; letter-spacing: 0.5px; }
-.subtitle { margin: 3px 0 0; font-size: 13px; color: #ccfbf1; }
-.follow-up { margin: 2px 0 0; font-size: 11px; opacity: 0.8; }
-
-.live-status {
-    display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.15);
-    padding: 8px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; flex-shrink: 0;
-    backdrop-filter: blur(5px);
+.action-btn{
+    border:0;border-radius:8px;padding:10px 9px;font-size:11px;
+    font-weight:800;cursor:pointer;min-height:40px
 }
-.live-dot { width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; }
+.finish-btn{background:#176b68;color:#fff}
+.finished-btn{background:#dcfce7;color:#166534}
+.comment-btn{background:#e0f2fe;color:#0369a1}
+.view-btn{background:#ede9fe;color:#6d28d9}
+.delete-btn{background:#fee2e2;color:#b91c1c}
+.action-btn:active{transform:scale(.98)}
 
-/* ================= MAIN ================= */
-.container { width: 100%; max-width: 1100px; margin: 25px auto; padding: 0 16px; }
+/* EMPTY */
+.empty{text-align:center;padding:45px 15px;color:#9ca3af}
+.empty-icon{font-size:35px}.empty h3{margin:7px 0;color:#4b5563;font-size:16px}
 
-/* ================= STATS ================= */
-.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 25px; }
-.stat-card {
-    background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 18px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.02); text-align: center; transition: transform 0.2s ease;
+/* MESSAGE */
+#message{
+    position:fixed;top:15px;left:15px;right:15px;z-index:9999;
+    display:none;padding:11px 15px;border-radius:8px;font-size:12px;
+    font-weight:700;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,.15)
 }
-.stat-card:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.05); }
-.stat-title { font-size: 12px; color: #64748b; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-.stat-number { font-size: 28px; font-weight: 700; margin-top: 5px; color: #0f766e; }
-.stat-number.pending-num { color: #f59e0b; }
-.stat-number.finish-num { color: #10b981; }
+#message.success{background:#dcfce7;color:#166534}
+#message.error{background:#fee2e2;color:#991b1b}
 
-/* ================= CARD ================= */
-.card {
-    background: #fff; border-radius: 16px; border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-bottom: 20px; overflow: hidden;
+/* MODAL */
+.modal{
+    display:none;position:fixed;inset:0;z-index:10000;
+    background:rgba(15,23,42,.58);padding:18px;
+    align-items:center;justify-content:center
 }
-.card-header { padding: 16px 20px; border-bottom: 1px solid #f1f5f9; background: #f8fafc; }
-.card-header h2 { margin: 0; font-size: 17px; color: #0f766e; }
-.card-header p { margin: 5px 0 0; font-size: 12px; color: #64748b; }
-
-/* ================= FORM ================= */
-.form-container { padding: 20px; display: grid; grid-template-columns: 1fr 1.5fr 1fr auto; gap: 12px; }
-input, textarea {
-    width: 100%; border: 1.5px solid #cbd5e1; border-radius: 10px; padding: 12px 14px;
-    font-family: inherit; font-size: 14px; outline: none; background: #f8fafc; color: #334155; transition: all 0.2s ease;
+.modal.show{display:flex}
+.modal-box{
+    width:min(620px,100%);max-height:88vh;overflow:auto;
+    background:#fff;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.25)
 }
-input:focus, textarea:focus { border-color: #0f766e; background: #fff; box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15); }
-.add-btn {
-    background: #0f766e; color: #fff; border: 0; border-radius: 10px; padding: 0 24px;
-    font-weight: 700; cursor: pointer; font-size: 14px; transition: background 0.2s, transform 0.1s;
+.modal-header{
+    display:flex;justify-content:space-between;gap:10px;align-items:center;
+    padding:16px;border-bottom:1px solid #edf2f2
 }
-.add-btn:hover { background: #115e59; }
-.add-btn:active { transform: scale(0.97); }
-
-/* ================= TABS & TOOLBAR ================= */
-.toolbar { padding: 15px 20px; display: flex; flex-direction: column; gap: 15px; border-bottom: 1px solid #f1f5f9; }
-.search-box { width: 100%; max-width: 450px; }
-
-.filter-tabs {
-    display: flex; background: #f1f5f9; border-radius: 12px; padding: 5px; gap: 5px; width: 100%; max-width: 450px;
+.modal-header h3{margin:0;font-size:18px}
+.close-btn{
+    width:34px;height:34px;border:0;border-radius:50%;
+    background:#f1f5f9;color:#475569;font-size:20px;cursor:pointer
 }
-.filter-btn {
-    flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
-    background: transparent; border: none; padding: 10px; border-radius: 8px;
-    font-size: 13px; font-weight: 700; color: #64748b; cursor: pointer; transition: all 0.3s ease; font-family: inherit;
+.modal-body{padding:16px}
+.detail-label{
+    font-size:10px;text-transform:uppercase;letter-spacing:.5px;
+    color:#718096;font-weight:800;margin-bottom:5px
 }
-.filter-btn.active { background: #fff; color: #0f766e; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
-.tab-badge { background: #e2e8f0; color: #475569; padding: 2px 8px; border-radius: 12px; font-size: 11px; }
-.filter-btn.active .tab-badge { background: #ccfbf1; color: #0f766e; }
-
-/* ================= TASKS ================= */
-.tasks-container { padding: 15px 20px; }
-.task-card {
-    background: #fff; border: 1px solid #e2e8f0; border-left: 5px solid #f59e0b;
-    border-radius: 14px; padding: 18px; margin-bottom: 15px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.02); transition: transform 0.2s ease, box-shadow 0.2s ease;
+.detail-value{
+    background:#f8fafc;border:1px solid #e5e7eb;border-radius:9px;
+    padding:11px;margin-bottom:12px;font-size:14px;line-height:1.6;
+    white-space:pre-wrap;word-break:break-word
 }
-.task-card:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,0.06); }
-.pending-card { border-left-color: #f59e0b; }
-.finish-card { border-left-color: #10b981; background: #f8fafc; opacity: 0.9; }
+.modal-status{margin-bottom:14px}
 
-/* ================= TASK TOP ================= */
-.task-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
-.task-name { font-size: 16px; font-weight: 700; color: #334155; word-break: break-word; }
-
-/* تأثير الشطب الخفيف جدًا */
-.finish-card .task-name {
-    color: #94a3b8; 
-    text-decoration: line-through; 
-    text-decoration-color: rgba(148, 163, 184, 0.4); 
-    text-decoration-thickness: 1.5px;
+/* MOBILE */
+@media(max-width:700px){
+    .header{padding:12px 10px}
+    .header-content{width:100%}
+    .company-logo{width:46px;height:46px;min-width:46px;max-width:46px}
+    .brand{gap:8px}.brand-text h1{font-size:18px}
+    .subtitle{font-size:9px}.follow-up{font-size:8px}
+    .live-status{padding:6px 8px;font-size:9px}
+    .container{margin:12px auto;padding:0 8px}
+    .stats{gap:6px}.stat-card{padding:10px 8px}
+    .stat-title{font-size:9px}.stat-number{font-size:20px}
+    .form-container{grid-template-columns:1fr;padding:12px}
+    .add-btn{width:100%;min-height:43px}
+    .toolbar{flex-direction:column;padding:11px}
+    .filter{width:100%}
+    .tasks-container{padding:8px}
+    .task-card{padding:12px;margin-bottom:9px;border-radius:11px}
+    .task-top{display:block}
+    .task-name{font-size:15px;margin-bottom:7px}
+    .status{font-size:10px}
+    .task-info{grid-template-columns:1fr;gap:6px}
+    .info-text{font-size:12px}
+    .task-actions{grid-template-columns:1fr 1fr}
+    .action-btn{width:100%;min-height:41px}
+    .view-btn{grid-column:1 / -1}
+    .delete-btn{grid-column:1 / -1}
+    .completed-card::after{position:static;display:block;margin-top:8px}
+    .modal{padding:10px}.modal-box{max-height:92vh;border-radius:14px}
 }
-
-/* ================= STATUS ================= */
-.status {
-    display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 20px;
-    font-size: 11px; font-weight: 700; white-space: nowrap;
-}
-.status.pending { background: #fef3c7; color: #b45309; }
-.status.finish { background: #d1fae5; color: #047857; }
-.status-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
-
-/* ================= INFO ================= */
-.info-text { font-size: 14px; line-height: 1.6; color: #475569; word-break: break-word; margin-bottom: 15px; }
-
-/* ================= ACTIONS ================= */
-.task-actions { display: flex; gap: 10px; border-top: 1px solid #f1f5f9; padding-top: 15px; }
-.action-btn { border: 0; border-radius: 8px; padding: 10px 12px; font-size: 12px; font-weight: 700; cursor: pointer; flex: 1; transition: opacity 0.2s, transform 0.1s; color: #fff;}
-.action-btn:hover { opacity: 0.9; }
-.action-btn:active { transform: scale(0.96); }
-
-.view-btn { background: #e2e8f0; color: #334155; }
-.done-btn { background: #0f766e; }
-.reopen-btn { background: #f59e0b; color: #fff; } /* زر الإعادة مميز باللون البرتقالي */
-.delete-btn { background: #fecaca; color: #991b1b; }
-
-/* ================= MODAL (VIEW / EDIT) ================= */
-.modal-overlay {
-    display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px);
-    z-index: 9999; align-items: center; justify-content: center; padding: 15px;
-    opacity: 0; transition: opacity 0.3s ease;
-}
-.modal-overlay.active { display: flex; opacity: 1; }
-.modal-content {
-    background: #fff; width: 100%; max-width: 500px; border-radius: 18px; padding: 25px;
-    display: flex; flex-direction: column; gap: 15px; max-height: 90vh; overflow-y: auto;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2); transform: scale(0.95); transition: transform 0.3s ease;
-}
-.modal-overlay.active .modal-content { transform: scale(1); }
-.modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f1f5f9; padding-bottom: 15px; margin-bottom: 5px; }
-.modal-header h3 { margin: 0; font-size: 18px; color: #0f766e; }
-.close-modal-btn { background: none; border: none; font-size: 26px; cursor: pointer; color: #94a3b8; transition: color 0.2s; }
-.close-modal-btn:hover { color: #ef4444; }
-.modal-label { font-size: 12px; font-weight: 700; color: #475569; margin-bottom: -8px; }
-.large-comment { min-height: 140px; resize: vertical; }
-.modal-actions { display: flex; gap: 10px; margin-top: 10px; }
-.modal-actions button { border: none; border-radius: 10px; padding: 12px; font-weight: 700; cursor: pointer; transition: 0.2s; font-size: 14px; }
-.save-btn { flex: 2; background: #0f766e; color: white; }
-.save-btn:hover { background: #115e59; }
-.cancel-btn { flex: 1; background: #f1f5f9; color: #334155; }
-.cancel-btn:hover { background: #e2e8f0; }
-
-/* ================= EMPTY ================= */
-.empty { text-align: center; padding: 50px 15px; color: #94a3b8; }
-.empty-icon { font-size: 40px; margin-bottom: 10px; }
-.empty h3 { margin: 0 0 5px; color: #475569; font-size: 18px; }
-
-/* ================= MESSAGE ================= */
-#message {
-    position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 10000; display: none;
-    padding: 12px 24px; border-radius: 30px; font-size: 13px; font-weight: 700;
-    text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-#message.success { background: #10b981; color: #fff; }
-#message.error { background: #ef4444; color: #fff; }
-
-/* ================= MOBILE ================= */
-@media(max-width: 768px){
-    .form-container { grid-template-columns: 1fr; padding: 15px; }
-    .add-btn { min-height: 48px; }
-    .toolbar { flex-direction: column; }
-    .search-box, .filter-tabs { max-width: 100%; }
-    .task-actions { flex-wrap: wrap; }
-    .action-btn { min-height: 42px; }
-    .delete-btn { flex-basis: 100%; }
+@media(max-width:380px){
+    .company-logo{width:42px;height:42px;min-width:42px;max-width:42px}
+    .brand-text h1{font-size:16px}.subtitle{font-size:8px}.follow-up{font-size:7px}
+    .live-status{padding:5px 6px;font-size:8px}
+    .task-actions{grid-template-columns:1fr}
+    .view-btn,.delete-btn{grid-column:auto}
 }
 </style>
 </head>
+
 <body>
 
 <header class="header">
-    <div class="header-content">
-        <div class="brand">
-            <img src="Logo.png" alt="JADEED" class="company-logo" onerror="this.style.display='none';">
-            <div class="brand-text">
-                <h1>JADEEDTEAM</h1>
-                <p class="subtitle">Task Management & Follow-up</p>
-                <p class="follow-up">Follow-up by <strong>Shrouk</strong> & <strong>Mr. Ahmed</strong></p>
-            </div>
+<div class="header-content">
+    <div class="brand">
+        <img src="Logo.png" alt="JADEED Climate Technology" class="company-logo"
+             onerror="this.style.display='none';">
+        <div class="brand-text">
+            <h1>JADEEDTEAM</h1>
+            <p class="subtitle">Task Management & Follow-up</p>
+            <p class="follow-up">Follow-up by <strong>Shrouk</strong> & <strong>Mr. Ahmed</strong></p>
         </div>
-        <div class="live-status"><span class="live-dot"></span> Live</div>
     </div>
+    <div class="live-status"><span class="live-dot"></span>Live</div>
+</div>
 </header>
 
 <main class="container">
-    <!-- STATS -->
-    <div class="stats">
-        <div class="stat-card">
-            <div class="stat-title">Total Tasks</div>
-            <div class="stat-number" id="totalTasks">0</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-title">Pending</div>
-            <div class="stat-number pending-num" id="pendingTasks">0</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-title">Finished</div>
-            <div class="stat-number finish-num" id="completedTasks">0</div>
-        </div>
-    </div>
 
-    <!-- ADD TASK -->
-    <div class="card">
-        <div class="card-header">
-            <h2>Add New Task</h2>
-            <p>Create a task and assign it to a team member</p>
-        </div>
-        <div class="form-container">
-            <input type="text" id="taskName" placeholder="Task Name" autocomplete="off">
-            <input type="text" id="taskDesc" placeholder="Description" autocomplete="off">
-            <input type="text" id="taskAssignee" placeholder="Assignee" autocomplete="off">
-            <button type="button" class="add-btn" id="addTaskButton">＋ Add Task</button>
-        </div>
+<div class="stats">
+    <div class="stat-card total-stat">
+        <div class="stat-title">Total Tasks</div>
+        <div class="stat-number" id="totalTasks">0</div>
     </div>
-
-    <!-- TASK LIST & FILTERS -->
-    <div class="card">
-        <div class="toolbar">
-            <div class="filter-tabs">
-                <button class="filter-btn active" data-filter="all">📋 All <span class="tab-badge" id="tabCountAll">0</span></button>
-                <button class="filter-btn" data-filter="pending">⏳ Pending <span class="tab-badge" id="tabCountPending">0</span></button>
-                <button class="filter-btn" data-filter="finish">✓ Finished <span class="tab-badge" id="tabCountFinish">0</span></button>
-            </div>
-            <input type="search" id="searchInput" class="search-box" placeholder="🔎 Search tasks by name, desc, assignee..." autocomplete="off">
-        </div>
-        <div id="tasksContainer" class="tasks-container"></div>
+    <div class="stat-card pending-stat">
+        <div class="stat-title">Pending</div>
+        <div class="stat-number" id="pendingTasks">0</div>
     </div>
-</main>
-
-<!-- EDIT MODAL -->
-<div id="editModal" class="modal-overlay">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3>👁 View & Edit Task</h3>
-            <button class="close-modal-btn" id="closeModalBtn">×</button>
-        </div>
-        <input type="hidden" id="modalTaskId">
-        <label class="modal-label">Task Name</label>
-        <input type="text" id="modalTaskName" placeholder="Task Name">
-        <label class="modal-label">Description</label>
-        <textarea id="modalTaskDesc" placeholder="Description" rows="3"></textarea>
-        <label class="modal-label">Assignee</label>
-        <input type="text" id="modalTaskAssignee" placeholder="Assignee">
-        <label class="modal-label">💬 Comment / Follow-up</label>
-        <textarea id="modalTaskComment" class="large-comment" placeholder="Add detailed comments or follow-ups here..."></textarea>
-        <div class="modal-actions">
-            <button class="cancel-btn" id="cancelModalBtn">Cancel</button>
-            <button class="save-btn" id="saveModalBtn">💾 Save Changes</button>
-        </div>
+    <div class="stat-card finished-stat">
+        <div class="stat-title">Finished</div>
+        <div class="stat-number" id="completedTasks">0</div>
     </div>
 </div>
 
+<div class="card">
+    <div class="card-header">
+        <h2>Add New Task</h2>
+        <p>Create a task and assign it to a team member</p>
+    </div>
+    <div class="form-container">
+        <input type="text" id="taskName" placeholder="Task Name" autocomplete="off">
+        <input type="text" id="taskDesc" placeholder="Description" autocomplete="off">
+        <input type="text" id="taskAssignee" placeholder="Assignee" autocomplete="off">
+        <button type="button" class="add-btn" id="addTaskButton">＋ Add Task</button>
+    </div>
+</div>
+
+<div class="card">
+    <div class="toolbar">
+        <input type="search" id="searchInput" class="search-box" placeholder="🔎 Search tasks..." autocomplete="off">
+        <select id="statusFilter" class="filter">
+            <option value="all">All Status</option>
+            <option value="pending">Pending</option>
+            <option value="completed">Finished</option>
+        </select>
+    </div>
+    <div id="tasksContainer" class="tasks-container"></div>
+</div>
+
+</main>
+
 <div id="message"></div>
 
-<!-- FIREBASE -->
+<!-- DETAILS MODAL -->
+<div class="modal" id="detailsModal">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h3>Task Details</h3>
+            <button class="close-btn" type="button" onclick="closeModal()">×</button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+    </div>
+</div>
+
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
 <script>
 (function(){
 "use strict";
 
-cconst firebaseConfig={
-
-
-
-apiKey:
-
-"AIzaSyBBUN0is2Fq1KRJihVWeL2MMyi8yX4FAyg",
-
-
-
-authDomain:
-
-"dashboard-jadeed.firebaseapp.com",
-
-
-
-databaseURL:
-
-"https://dashboard-jadeed-default-rtdb.firebaseio.com",
-
-
-
-projectId:
-
-"dashboard-jadeed",
-
-
-
-storageBucket:
-
-"dashboard-jadeed.firebasestorage.app",
-
-
-
-messagingSenderId:
-
-"92287971638",
-
-
-
-appId:
-
-"1:92287971638:web:91b57c91032e7311864397"
-
-
-
+const firebaseConfig={
+    apiKey:"AIzaSyBBUN0is2Fq1KRJihVWeL2MMyi8yX4FAyg",
+    authDomain:"dashboard-jadeed.firebaseapp.com",
+    databaseURL:"https://dashboard-jadeed-default-rtdb.firebaseio.com",
+    projectId:"dashboard-jadeed",
+    storageBucket:"dashboard-jadeed.firebasestorage.app",
+    messagingSenderId:"92287971638",
+    appId:"1:92287971638:web:91b57c91032e7311864397"
 };
-
-
-
-
 
 firebase.initializeApp(firebaseConfig);
 
-
-
-
-
-const db=
-
-firebase.database();
-
-
-
-const tasksRef=
-
-db.ref("tasks");
-
-
-
-
+const db=firebase.database();
+const tasksRef=db.ref("tasks");
 
 let allTasks={};
-let currentFilter = "all";
 
-/* ================= ELEMENTS ================= */
-const taskNameInput = document.getElementById("taskName");
-const taskDescInput = document.getElementById("taskDesc");
-const taskAssigneeInput = document.getElementById("taskAssignee");
-const searchInput = document.getElementById("searchInput");
-const addButton = document.getElementById("addTaskButton");
-const tasksContainer = document.getElementById("tasksContainer");
-const filterButtons = document.querySelectorAll(".filter-btn");
+const taskNameInput=document.getElementById("taskName");
+const taskDescInput=document.getElementById("taskDesc");
+const taskAssigneeInput=document.getElementById("taskAssignee");
+const searchInput=document.getElementById("searchInput");
+const statusFilter=document.getElementById("statusFilter");
+const addButton=document.getElementById("addTaskButton");
+const tasksContainer=document.getElementById("tasksContainer");
 
-const editModal = document.getElementById("editModal");
-const closeModalBtn = document.getElementById("closeModalBtn");
-const cancelModalBtn = document.getElementById("cancelModalBtn");
-const saveModalBtn = document.getElementById("saveModalBtn");
+addButton.addEventListener("click",addTask);
+searchInput.addEventListener("input",renderTasks);
+statusFilter.addEventListener("change",renderTasks);
 
-/* ================= EVENTS ================= */
-addButton.addEventListener("click", addTask);
-searchInput.addEventListener("input", renderTasks);
-
-filterButtons.forEach(btn => {
-    btn.addEventListener("click", function() {
-        filterButtons.forEach(b => b.classList.remove("active"));
-        this.classList.add("active");
-        currentFilter = this.getAttribute("data-filter");
-        renderTasks();
-    });
-});
-
-closeModalBtn.addEventListener("click", closeModal);
-cancelModalBtn.addEventListener("click", closeModal);
-
-/* ================= REAL TIME ================= */
-tasksRef.on("value", function(snapshot){
-    allTasks = snapshot.val() || {};
+tasksRef.on("value",function(snapshot){
+    allTasks=snapshot.val()||{};
     updateStats();
     renderTasks();
-}, function(error){
-    showMessage("Firebase Error: "+error.message, "error");
+},function(error){
+    showMessage("Firebase Error: "+error.message,"error");
 });
 
-/* ================= ADD TASK ================= */
 function addTask(){
-    const name = taskNameInput.value.trim();
-    const desc = taskDescInput.value.trim();
-    const assignee = taskAssigneeInput.value.trim();
+    const name=taskNameInput.value.trim();
+    const desc=taskDescInput.value.trim();
+    const assignee=taskAssigneeInput.value.trim();
 
-    if(!name){ showMessage("Please enter a task name.", "error"); return; }
+    if(!name){
+        showMessage("Please enter a task name.","error");
+        return;
+    }
 
-    addButton.disabled = true; addButton.textContent = "Adding...";
+    addButton.disabled=true;
+    addButton.textContent="Adding...";
 
     tasksRef.push({
-        name: name, desc: desc, assignee: assignee, comment: "",
-        completed: false, createdAt: firebase.database.ServerValue.TIMESTAMP
-    }).then(function(){
-        taskNameInput.value = ""; taskDescInput.value = ""; taskAssigneeInput.value = "";
-        showMessage("Task added successfully ✓", "success");
-    }).catch(function(error){ showMessage("Could not add task: "+error.message, "error");
-    }).finally(function(){ addButton.disabled = false; addButton.textContent = "＋ Add Task"; });
+        name:name,
+        desc:desc,
+        assignee:assignee,
+        comment:"",
+        completed:false,
+        createdAt:firebase.database.ServerValue.TIMESTAMP
+    })
+    .then(function(){
+        taskNameInput.value="";
+        taskDescInput.value="";
+        taskAssigneeInput.value="";
+        showMessage("Task added successfully ✓","success");
+    })
+    .catch(function(error){
+        showMessage("Could not add task: "+error.message,"error");
+    })
+    .finally(function(){
+        addButton.disabled=false;
+        addButton.textContent="＋ Add Task";
+    });
 }
 
-/* ================= RENDER ================= */
 function renderTasks(){
-    tasksContainer.innerHTML = "";
-    const search = searchInput.value.toLowerCase().trim();
-    const entries = Object.entries(allTasks).sort(function(a,b){ return (b[1].createdAt || 0) - (a[1].createdAt || 0); });
+    tasksContainer.innerHTML="";
 
-    let visible = 0;
+    const search=searchInput.value.toLowerCase().trim();
+    const filter=statusFilter.value;
+
+    const entries=Object.entries(allTasks).sort(function(a,b){
+        return (b[1].createdAt||0)-(a[1].createdAt||0);
+    });
+
+    let visible=0;
 
     entries.forEach(function(item){
-        const id = item[0];
-        const task = item[1] || {};
-        const isFinish = task.completed === true;
+        const id=item[0];
+        const task=item[1]||{};
+        const finished=task.completed===true;
 
-        const searchable = (String(task.name || "") + " " + String(task.desc || "") + " " + String(task.assignee || "") + " " + String(task.comment || "")).toLowerCase();
-        if(search && searchable.indexOf(search) === -1) return;
-        if(currentFilter === "pending" && isFinish) return;
-        if(currentFilter === "finish" && !isFinish) return;
+        const searchable=(
+            String(task.name||"")+" "+
+            String(task.desc||"")+" "+
+            String(task.assignee||"")+" "+
+            String(task.comment||"")
+        ).toLowerCase();
+
+        if(search && searchable.indexOf(search)===-1)return;
+        if(filter==="pending" && finished)return;
+        if(filter==="completed" && !finished)return;
 
         visible++;
 
-        const card = document.createElement("div");
-        card.className = "task-card " + (isFinish ? "finish-card" : "pending-card");
+        const card=document.createElement("div");
+        card.className="task-card "+(finished?"completed-card":"pending-card");
 
-        const top = document.createElement("div");
-        top.className = "task-top";
+        const top=document.createElement("div");
+        top.className="task-top";
 
-        const name = document.createElement("div");
-        name.className = "task-name";
-        name.textContent = task.name || "-";
+        const name=document.createElement("div");
+        name.className="task-name";
+        name.textContent=task.name||"-";
 
-        const status = document.createElement("span");
-        status.className = isFinish ? "status finish" : "status pending";
-        status.innerHTML = '<span class="status-dot"></span> ' + (isFinish ? "Finished ✓" : "Pending ⏳");
+        const status=document.createElement("span");
+        status.className=finished?"status completed":"status pending";
+        status.innerHTML='<span class="status-dot"></span> '+(finished?"FINISHED ✓":"PENDING ⏳");
 
-        top.appendChild(name); top.appendChild(status);
+        top.appendChild(name);
+        top.appendChild(status);
 
-        const descText = document.createElement("div");
-        descText.className = "info-text";
-        descText.textContent = task.desc ? task.desc.substring(0, 75) + (task.desc.length > 75 ? "..." : "") : "No description provided.";
+        const info=document.createElement("div");
+        info.className="task-info";
 
-        const actions = document.createElement("div");
-        actions.className = "task-actions";
+        const descBox=document.createElement("div");
+        descBox.className="info-box";
+        descBox.innerHTML='<div class="info-title">Description</div>';
+        const desc=document.createElement("div");
+        desc.className="info-text";
+        desc.textContent=task.desc||"No description";
+        descBox.appendChild(desc);
 
-        const viewBtn = document.createElement("button");
-        viewBtn.type = "button";
-        viewBtn.className = "action-btn view-btn";
-        viewBtn.textContent = "👁 View & Edit";
-        viewBtn.addEventListener("click", function(){ openModal(id, task); });
+        const assigneeBox=document.createElement("div");
+        assigneeBox.className="info-box";
+        assigneeBox.innerHTML='<div class="info-title">Assignee</div>';
+        const assignee=document.createElement("div");
+        assignee.className="info-text";
+        assignee.textContent=task.assignee||"Not assigned";
+        assigneeBox.appendChild(assignee);
 
-        // زر التحويل بين (إنهاء / إعادة فتح)
-        const toggleBtn = document.createElement("button");
-        toggleBtn.type = "button";
-        if(isFinish) {
-            toggleBtn.className = "action-btn reopen-btn";
-            toggleBtn.textContent = "🔄 Reopen";
-        } else {
-            toggleBtn.className = "action-btn done-btn";
-            toggleBtn.textContent = "✓ Finish";
+        info.appendChild(descBox);
+        info.appendChild(assigneeBox);
+
+        const commentPreview=document.createElement("div");
+        commentPreview.className="comment-preview";
+
+        const commentTitle=document.createElement("div");
+        commentTitle.className="comment-preview-title";
+        commentTitle.textContent="Comment / Follow-up";
+
+        const commentText=document.createElement("div");
+        commentText.className="comment-preview-text";
+        if(task.comment){
+            commentText.textContent=task.comment;
+        }else{
+            commentText.textContent="No comment yet";
+            commentText.className+=" no-comment";
         }
-        toggleBtn.addEventListener("click", function(){ toggleStatus(id, isFinish); });
 
-        // هنا تم تصحيح الخطأ الإملائي 👇
-        const deleteBtn = document.createElement("button");
-        deleteBtn.type = "button";
-        deleteBtn.className = "action-btn delete-btn";
-        deleteBtn.textContent = "🗑 Delete";
-        deleteBtn.addEventListener("click", function(){ deleteTask(id); });
+        commentPreview.appendChild(commentTitle);
+        commentPreview.appendChild(commentText);
 
-        actions.appendChild(viewBtn);
-        actions.appendChild(toggleBtn);
-        actions.appendChild(deleteBtn);
+        const actions=document.createElement("div");
+        actions.className="task-actions";
 
-        card.appendChild(top);
-        card.appendChild(descText);
+        const finishBtn=document.createElement("button");
+        finishBtn.type="button";
+        finishBtn.className="action-btn "+(finished?"finished-btn":"finish-btn");
+        finishBtn.textContent=finished?"↩ Reopen":"✓ FINISH";
+        finishBtn.onclick=function(){toggleStatus(id,finished)};
+
+        const commentBtn=document.createElement("button");
+        commentBtn.type="button";
+        commentBtn.className="action-btn comment-btn";
+        commentBtn.textContent="💬 Add Comment";
+        commentBtn.onclick=function(){openComment(id,task.comment||"")};
