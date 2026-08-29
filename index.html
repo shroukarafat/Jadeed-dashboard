@@ -312,20 +312,79 @@ input:focus, textarea:focus { border-color: #0f766e; background: #fff; box-shado
 (function(){
 "use strict";
 
-const firebaseConfig={
-    apiKey: "AIzaSyBBUN0is2Fq1KRJihVWeL2MMyi8yX4FAyg",
-    authDomain: "dashboard-jadeed.firebaseapp.com",
-    databaseURL: "https://dashboard-jadeed-default-rtdb.firebaseio.com",
-    projectId: "dashboard-jadeed",
-    storageBucket: "dashboard-jadeed.firebasestorage.app",
-    messagingSenderId: "92287971638",
-    appId: "1:92287971638:web:91b57c91032e7311864397"
+cconst firebaseConfig={
+
+
+
+apiKey:
+
+"AIzaSyBBUN0is2Fq1KRJihVWeL2MMyi8yX4FAyg",
+
+
+
+authDomain:
+
+"dashboard-jadeed.firebaseapp.com",
+
+
+
+databaseURL:
+
+"https://dashboard-jadeed-default-rtdb.firebaseio.com",
+
+
+
+projectId:
+
+"dashboard-jadeed",
+
+
+
+storageBucket:
+
+"dashboard-jadeed.firebasestorage.app",
+
+
+
+messagingSenderId:
+
+"92287971638",
+
+
+
+appId:
+
+"1:92287971638:web:91b57c91032e7311864397"
+
+
+
 };
 
+
+
+
+
 firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
-const tasksRef = db.ref("tasks");
-let allTasks = {};
+
+
+
+
+
+const db=
+
+firebase.database();
+
+
+
+const tasksRef=
+
+db.ref("tasks");
+
+
+
+
+
+let allTasks={};
 let currentFilter = "all";
 
 /* ================= ELEMENTS ================= */
