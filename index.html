@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
+
 <title>JADEEDTEAM - Task Dashboard</title>
 
 <style>
@@ -15,7 +16,8 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -30,6 +32,7 @@ body {
 }
 
 /* ================= HEADER ================= */
+
 .header {
     background: linear-gradient(135deg, #0f766e, #042f2e);
     color: #fff;
@@ -49,415 +52,2241 @@ body {
     gap: 12px;
 }
 
-.brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
 .company-logo {
-    width: 50px; height: 50px; background: #fff; border-radius: 12px;
-    padding: 4px; object-fit: contain; flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 4px;
+    object-fit: contain;
+    flex-shrink: 0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-.brand-text h1 { margin: 0; font-size: 22px; line-height: 1.2; letter-spacing: 0.5px; }
-.subtitle { margin: 3px 0 0; font-size: 13px; color: #ccfbf1; }
-.follow-up { margin: 2px 0 0; font-size: 11px; opacity: 0.8; }
+.brand-text h1 {
+    margin: 0;
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+}
+
+.subtitle {
+    margin: 3px 0 0;
+    font-size: 13px;
+    color: #ccfbf1;
+}
+
+.follow-up {
+    margin: 2px 0 0;
+    font-size: 11px;
+    opacity: 0.8;
+}
 
 .live-status {
-    display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.15);
-    padding: 8px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.15);
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
     backdrop-filter: blur(5px);
 }
-.live-dot { width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; }
+
+.live-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #10b981;
+}
 
 /* ================= MAIN ================= */
-.container { width: 100%; max-width: 1100px; margin: 25px auto; padding: 0 16px; }
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 25px auto;
+    padding: 0 16px;
+}
 
 /* ================= STATS ================= */
-.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 25px; }
-.stat-card {
-    background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 18px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.02); text-align: center; transition: transform 0.2s ease;
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
 }
-.stat-card:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.05); }
-.stat-title { font-size: 12px; color: #64748b; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-.stat-number { font-size: 28px; font-weight: 700; margin-top: 5px; color: #0f766e; }
-.stat-number.pending-num { color: #f59e0b; }
-.stat-number.finish-num { color: #10b981; }
+
+.stat-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+}
+
+.stat-title {
+    font-size: 12px;
+    color: #64748b;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-number {
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: 5px;
+    color: #0f766e;
+}
+
+.stat-number.pending-num {
+    color: #f59e0b;
+}
+
+.stat-number.finish-num {
+    color: #10b981;
+}
 
 /* ================= CARD ================= */
+
 .card {
-    background: #fff; border-radius: 16px; border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-bottom: 20px; overflow: hidden;
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    margin-bottom: 20px;
+    overflow: hidden;
 }
-.card-header { padding: 16px 20px; border-bottom: 1px solid #f1f5f9; background: #f8fafc; }
-.card-header h2 { margin: 0; font-size: 17px; color: #0f766e; }
-.card-header p { margin: 5px 0 0; font-size: 12px; color: #64748b; }
+
+.card-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #f1f5f9;
+    background: #f8fafc;
+}
+
+.card-header h2 {
+    margin: 0;
+    font-size: 17px;
+    color: #0f766e;
+}
+
+.card-header p {
+    margin: 5px 0 0;
+    font-size: 12px;
+    color: #64748b;
+}
 
 /* ================= FORM ================= */
-.form-container { padding: 20px; display: grid; grid-template-columns: 1fr 1.5fr 1fr auto; gap: 12px; }
-input, textarea {
-    width: 100%; border: 1.5px solid #cbd5e1; border-radius: 10px; padding: 12px 14px;
-    font-family: inherit; font-size: 14px; outline: none; background: #f8fafc; color: #334155; transition: all 0.2s ease;
+
+.form-container {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr auto;
+    gap: 12px;
 }
-input:focus, textarea:focus { border-color: #0f766e; background: #fff; box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15); }
+
+input,
+textarea {
+    width: 100%;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    background: #f8fafc;
+    color: #334155;
+    transition: all 0.2s ease;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #0f766e;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+}
+
 .add-btn {
-    background: #0f766e; color: #fff; border: 0; border-radius: 10px; padding: 0 24px;
-    font-weight: 700; cursor: pointer; font-size: 14px; transition: background 0.2s, transform 0.1s;
+    background: #0f766e;
+    color: #fff;
+    border: 0;
+    border-radius: 10px;
+    padding: 0 24px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s, transform 0.1s;
 }
-.add-btn:hover { background: #115e59; }
-.add-btn:active { transform: scale(0.97); }
+
+.add-btn:hover {
+    background: #115e59;
+}
+
+.add-btn:active {
+    transform: scale(0.97);
+}
+
+.add-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
 
 /* ================= TABS & TOOLBAR ================= */
-.toolbar { padding: 15px 20px; display: flex; flex-direction: column; gap: 15px; border-bottom: 1px solid #f1f5f9; }
-.search-box { width: 100%; max-width: 450px; }
+
+.toolbar {
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.search-box {
+    width: 100%;
+    max-width: 450px;
+}
 
 .filter-tabs {
-    display: flex; background: #f1f5f9; border-radius: 12px; padding: 5px; gap: 5px; width: 100%; max-width: 450px;
+    display: flex;
+    background: #f1f5f9;
+    border-radius: 12px;
+    padding: 5px;
+    gap: 5px;
+    width: 100%;
+    max-width: 450px;
 }
+
 .filter-btn {
-    flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
-    background: transparent; border: none; padding: 10px; border-radius: 8px;
-    font-size: 13px; font-weight: 700; color: #64748b; cursor: pointer; transition: all 0.3s ease; font-family: inherit;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
 }
-.filter-btn.active { background: #fff; color: #0f766e; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
-.tab-badge { background: #e2e8f0; color: #475569; padding: 2px 8px; border-radius: 12px; font-size: 11px; }
-.filter-btn.active .tab-badge { background: #ccfbf1; color: #0f766e; }
+
+.filter-btn.active {
+    background: #fff;
+    color: #0f766e;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.tab-badge {
+    background: #e2e8f0;
+    color: #475569;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+}
+
+.filter-btn.active .tab-badge {
+    background: #ccfbf1;
+    color: #0f766e;
+}
 
 /* ================= TASKS ================= */
-.tasks-container { padding: 15px 20px; }
-.task-card {
-    background: #fff; border: 1px solid #e2e8f0; border-left: 5px solid #f59e0b;
-    border-radius: 14px; padding: 18px; margin-bottom: 15px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.02); transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+.tasks-container {
+    padding: 15px 20px;
 }
-.task-card:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,0.06); }
-.pending-card { border-left-color: #f59e0b; }
-.finish-card { border-left-color: #10b981; background: #f8fafc; opacity: 0.9; }
+
+.task-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid #f59e0b;
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+}
+
+.pending-card {
+    border-left-color: #f59e0b;
+}
+
+.finish-card {
+    border-left-color: #10b981;
+    background: #f8fafc;
+    opacity: 0.9;
+}
 
 /* ================= TASK TOP ================= */
-.task-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
-.task-name { font-size: 16px; font-weight: 700; color: #334155; word-break: break-word; }
 
-/* تأثير الشطب الخفيف جدًا */
+.task-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.task-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #334155;
+    word-break: break-word;
+}
+
 .finish-card .task-name {
-    color: #94a3b8; 
-    text-decoration: line-through; 
-    text-decoration-color: rgba(148, 163, 184, 0.4); 
+    color: #94a3b8;
+    text-decoration: line-through;
+    text-decoration-color: rgba(148, 163, 184, 0.4);
     text-decoration-thickness: 1.5px;
 }
 
 /* ================= STATUS ================= */
+
 .status {
-    display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 20px;
-    font-size: 11px; font-weight: 700; white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
 }
-.status.pending { background: #fef3c7; color: #b45309; }
-.status.finish { background: #d1fae5; color: #047857; }
-.status-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+.status.pending {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.status.finish {
+    background: #d1fae5;
+    color: #047857;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
 
 /* ================= INFO ================= */
-.info-text { font-size: 14px; line-height: 1.6; color: #475569; word-break: break-word; margin-bottom: 15px; }
+
+.info-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #475569;
+    word-break: break-word;
+    margin-bottom: 10px;
+}
+
+.assignee-text {
+    font-size: 12px;
+    color: #64748b;
+    margin-bottom: 15px;
+}
+
+.assignee-text strong {
+    color: #0f766e;
+}
 
 /* ================= ACTIONS ================= */
-.task-actions { display: flex; gap: 10px; border-top: 1px solid #f1f5f9; padding-top: 15px; }
-.action-btn { border: 0; border-radius: 8px; padding: 10px 12px; font-size: 12px; font-weight: 700; cursor: pointer; flex: 1; transition: opacity 0.2s, transform 0.1s; color: #fff;}
-.action-btn:hover { opacity: 0.9; }
-.action-btn:active { transform: scale(0.96); }
 
-.view-btn { background: #e2e8f0; color: #334155; }
-.done-btn { background: #0f766e; }
-.reopen-btn { background: #f59e0b; color: #fff; } /* زر الإعادة مميز باللون البرتقالي */
-.delete-btn { background: #fecaca; color: #991b1b; }
+.task-actions {
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 15px;
+}
 
-/* ================= MODAL (VIEW / EDIT) ================= */
+.action-btn {
+    border: 0;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    flex: 1;
+    transition: opacity 0.2s, transform 0.1s;
+    color: #fff;
+}
+
+.action-btn:hover {
+    opacity: 0.9;
+}
+
+.action-btn:active {
+    transform: scale(0.96);
+}
+
+.view-btn {
+    background: #e2e8f0;
+    color: #334155;
+}
+
+.done-btn {
+    background: #0f766e;
+}
+
+.reopen-btn {
+    background: #f59e0b;
+    color: #fff;
+}
+
+.delete-btn {
+    background: #fecaca;
+    color: #991b1b;
+}
+
+/* ================= MODAL ================= */
+
 .modal-overlay {
-    display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px);
-    z-index: 9999; align-items: center; justify-content: center; padding: 15px;
-    opacity: 0; transition: opacity 0.3s ease;
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
 }
-.modal-overlay.active { display: flex; opacity: 1; }
+
+.modal-overlay.active {
+    display: flex;
+}
+
 .modal-content {
-    background: #fff; width: 100%; max-width: 500px; border-radius: 18px; padding: 25px;
-    display: flex; flex-direction: column; gap: 15px; max-height: 90vh; overflow-y: auto;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2); transform: scale(0.95); transition: transform 0.3s ease;
+    background: #fff;
+    width: 100%;
+    max-width: 550px;
+    border-radius: 18px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
-.modal-overlay.active .modal-content { transform: scale(1); }
-.modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f1f5f9; padding-bottom: 15px; margin-bottom: 5px; }
-.modal-header h3 { margin: 0; font-size: 18px; color: #0f766e; }
-.close-modal-btn { background: none; border: none; font-size: 26px; cursor: pointer; color: #94a3b8; transition: color 0.2s; }
-.close-modal-btn:hover { color: #ef4444; }
-.modal-label { font-size: 12px; font-weight: 700; color: #475569; margin-bottom: -8px; }
-.large-comment { min-height: 140px; resize: vertical; }
-.modal-actions { display: flex; gap: 10px; margin-top: 10px; }
-.modal-actions button { border: none; border-radius: 10px; padding: 12px; font-weight: 700; cursor: pointer; transition: 0.2s; font-size: 14px; }
-.save-btn { flex: 2; background: #0f766e; color: white; }
-.save-btn:hover { background: #115e59; }
-.cancel-btn { flex: 1; background: #f1f5f9; color: #334155; }
-.cancel-btn:hover { background: #e2e8f0; }
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 15px;
+    margin-bottom: 5px;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #0f766e;
+}
+
+.close-modal-btn {
+    background: none;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: #94a3b8;
+}
+
+.close-modal-btn:hover {
+    color: #ef4444;
+}
+
+.modal-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: -8px;
+}
+
+.large-comment {
+    min-height: 220px;
+    resize: vertical;
+    line-height: 1.7;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.modal-actions button {
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 14px;
+}
+
+.save-btn {
+    flex: 2;
+    background: #0f766e;
+    color: white;
+}
+
+.save-btn:hover {
+    background: #115e59;
+}
+
+.save-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.cancel-btn {
+    flex: 1;
+    background: #f1f5f9;
+    color: #334155;
+}
+
+.cancel-btn:hover {
+    background: #e2e8f0;
+}
 
 /* ================= EMPTY ================= */
-.empty { text-align: center; padding: 50px 15px; color: #94a3b8; }
-.empty-icon { font-size: 40px; margin-bottom: 10px; }
-.empty h3 { margin: 0 0 5px; color: #475569; font-size: 18px; }
+
+.empty {
+    text-align: center;
+    padding: 50px 15px;
+    color: #94a3b8;
+}
+
+.empty-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.empty h3 {
+    margin: 0 0 5px;
+    color: #475569;
+    font-size: 18px;
+}
 
 /* ================= MESSAGE ================= */
+
 #message {
-    position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 10000; display: none;
-    padding: 12px 24px; border-radius: 30px; font-size: 13px; font-weight: 700;
-    text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    display: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
-#message.success { background: #10b981; color: #fff; }
-#message.error { background: #ef4444; color: #fff; }
+
+#message.success {
+    background: #10b981;
+    color: #fff;
+}
+
+#message.error {
+    background: #ef4444;
+    color: #fff;
+}
 
 /* ================= MOBILE ================= */
-@media(max-width: 768px){
-    .form-container { grid-template-columns: 1fr; padding: 15px; }
-    .add-btn { min-height: 48px; }
-    .toolbar { flex-direction: column; }
-    .search-box, .filter-tabs { max-width: 100%; }
-    .task-actions { flex-wrap: wrap; }
-    .action-btn { min-height: 42px; }
-    .delete-btn { flex-basis: 100%; }
+
+@media(max-width: 768px) {
+
+    .header {
+        padding: 12px;
+    }
+
+    .brand-text h1 {
+        font-size: 19px;
+    }
+
+    .subtitle {
+        font-size: 11px;
+    }
+
+    .follow-up {
+        font-size: 10px;
+    }
+
+    .live-status {
+        padding: 7px 9px;
+    }
+
+    .container {
+        margin: 15px auto;
+        padding: 0 10px;
+    }
+
+    .stats {
+        gap: 8px;
+        margin-bottom: 15px;
+    }
+
+    .stat-card {
+        padding: 12px 5px;
+    }
+
+    .stat-title {
+        font-size: 9px;
+    }
+
+    .stat-number {
+        font-size: 22px;
+    }
+
+    .form-container {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    .add-btn {
+        min-height: 48px;
+    }
+
+    .toolbar {
+        padding: 12px;
+    }
+
+    .search-box,
+    .filter-tabs {
+        max-width: 100%;
+    }
+
+    .filter-btn {
+        font-size: 11px;
+        padding: 9px 4px;
+    }
+
+    .tab-badge {
+        padding: 2px 5px;
+        font-size: 9px;
+    }
+
+    .tasks-container {
+        padding: 12px;
+    }
+
+    .task-card {
+        padding: 15px;
+    }
+
+    .task-top {
+        flex-direction: column;
+    }
+
+    .status {
+        align-self: flex-start;
+    }
+
+    .task-actions {
+        flex-wrap: wrap;
+    }
+
+    .action-btn {
+        min-height: 42px;
+    }
+
+    .delete-btn {
+        flex-basis: 100%;
+    }
+
+    .modal-content {
+        padding: 18px;
+        max-height: 94vh;
+    }
+
+    .large-comment {
+        min-height: 200px;
+    }
 }
 </style>
 </head>
+
 <body>
+
+<!-- ================= HEADER ================= -->
 
 <header class="header">
     <div class="header-content">
+
         <div class="brand">
-            <img src="Logo.png" alt="JADEED" class="company-logo" onerror="this.style.display='none';">
+
+            <img
+                src="Logo.png"
+                alt="JADEED"
+                class="company-logo"
+                onerror="this.style.display='none';"
+            >
+
             <div class="brand-text">
                 <h1>JADEEDTEAM</h1>
-                <p class="subtitle">Task Management & Follow-up</p>
-                <p class="follow-up">Follow-up by <strong>Shrouk</strong> & <strong>Mr. Ahmed</strong></p>
+
+                <p class="subtitle">
+                    Task Management & Follow-up
+                </p>
+
+                <p class="follow-up">
+                    Follow-up by
+                    <strong>Shrouk</strong>
+                    &
+                    <strong>Mr. Ahmed</strong>
+                </p>
             </div>
+
         </div>
-        <div class="live-status"><span class="live-dot"></span> Live</div>
+
+        <div class="live-status">
+            <span class="live-dot"></span>
+            Live
+        </div>
+
     </div>
 </header>
 
+
+<!-- ================= MAIN ================= -->
+
 <main class="container">
-    <!-- STATS -->
+
+    <!-- ================= STATS ================= -->
+
     <div class="stats">
-        <div class="stat-card">
-            <div class="stat-title">Total Tasks</div>
-            <div class="stat-number" id="totalTasks">0</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-title">Pending</div>
-            <div class="stat-number pending-num" id="pendingTasks">0</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-title">Finished</div>
-            <div class="stat-number finish-num" id="completedTasks">0</div>
-        </div>
-    </div>
 
-    <!-- ADD TASK -->
-    <div class="card">
-        <div class="card-header">
-            <h2>Add New Task</h2>
-            <p>Create a task and assign it to a team member</p>
-        </div>
-        <div class="form-container">
-            <input type="text" id="taskName" placeholder="Task Name" autocomplete="off">
-            <input type="text" id="taskDesc" placeholder="Description" autocomplete="off">
-            <input type="text" id="taskAssignee" placeholder="Assignee" autocomplete="off">
-            <button type="button" class="add-btn" id="addTaskButton">＋ Add Task</button>
-        </div>
-    </div>
-
-    <!-- TASK LIST & FILTERS -->
-    <div class="card">
-        <div class="toolbar">
-            <div class="filter-tabs">
-                <button class="filter-btn active" data-filter="all">📋 All <span class="tab-badge" id="tabCountAll">0</span></button>
-                <button class="filter-btn" data-filter="pending">⏳ Pending <span class="tab-badge" id="tabCountPending">0</span></button>
-                <button class="filter-btn" data-filter="finish">✓ Finished <span class="tab-badge" id="tabCountFinish">0</span></button>
+        <div class="stat-card">
+            <div class="stat-title">
+                Total Tasks
             </div>
-            <input type="search" id="searchInput" class="search-box" placeholder="🔎 Search tasks by name, desc, assignee..." autocomplete="off">
+
+            <div class="stat-number" id="totalTasks">
+                0
+            </div>
         </div>
-        <div id="tasksContainer" class="tasks-container"></div>
+
+
+        <div class="stat-card">
+            <div class="stat-title">
+                Pending
+            </div>
+
+            <div
+                class="stat-number pending-num"
+                id="pendingTasks"
+            >
+                0
+            </div>
+        </div>
+
+
+        <div class="stat-card">
+            <div class="stat-title">
+                Finished
+            </div>
+
+            <div
+                class="stat-number finish-num"
+                id="completedTasks"
+            >
+                0
+            </div>
+        </div>
+
     </div>
+
+
+    <!-- ================= ADD TASK ================= -->
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <h2>
+                Add New Task
+            </h2>
+
+            <p>
+                Create a task and assign it to a team member
+            </p>
+
+        </div>
+
+
+        <div class="form-container">
+
+            <input
+                type="text"
+                id="taskName"
+                placeholder="Task Name"
+                autocomplete="off"
+            >
+
+            <input
+                type="text"
+                id="taskDesc"
+                placeholder="Description"
+                autocomplete="off"
+            >
+
+            <input
+                type="text"
+                id="taskAssignee"
+                placeholder="Assignee"
+                autocomplete="off"
+            >
+
+            <button
+                type="button"
+                class="add-btn"
+                id="addTaskButton"
+            >
+                ＋ Add Task
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= TASK LIST ================= -->
+
+    <div class="card">
+
+        <div class="toolbar">
+
+            <div class="filter-tabs">
+
+                <button
+                    class="filter-btn active"
+                    data-filter="all"
+                >
+                    📋 All
+
+                    <span
+                        class="tab-badge"
+                        id="tabCountAll"
+                    >
+                        0
+                    </span>
+                </button>
+
+
+                <button
+                    class="filter-btn"
+                    data-filter="pending"
+                >
+                    ⏳ Pending
+
+                    <span
+                        class="tab-badge"
+                        id="tabCountPending"
+                    >
+                        0
+                    </span>
+                </button>
+
+
+                <button
+                    class="filter-btn"
+                    data-filter="finish"
+                >
+                    ✓ Finished
+
+                    <span
+                        class="tab-badge"
+                        id="tabCountFinish"
+                    >
+                        0
+                    </span>
+                </button>
+
+            </div>
+
+
+            <input
+                type="search"
+                id="searchInput"
+                class="search-box"
+                placeholder="🔎 Search tasks by name, desc, assignee..."
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <div
+            id="tasksContainer"
+            class="tasks-container"
+        ></div>
+
+    </div>
+
 </main>
 
-<!-- EDIT MODAL -->
-<div id="editModal" class="modal-overlay">
+
+<!-- ================= EDIT MODAL ================= -->
+
+<div
+    id="editModal"
+    class="modal-overlay"
+>
+
     <div class="modal-content">
+
         <div class="modal-header">
-            <h3>👁 View & Edit Task</h3>
-            <button class="close-modal-btn" id="closeModalBtn">×</button>
+
+            <h3>
+                👁 View & Edit Task
+            </h3>
+
+            <button
+                type="button"
+                class="close-modal-btn"
+                id="closeModalBtn"
+            >
+                ×
+            </button>
+
         </div>
-        <input type="hidden" id="modalTaskId">
-        <label class="modal-label">Task Name</label>
-        <input type="text" id="modalTaskName" placeholder="Task Name">
-        <label class="modal-label">Description</label>
-        <textarea id="modalTaskDesc" placeholder="Description" rows="3"></textarea>
-        <label class="modal-label">Assignee</label>
-        <input type="text" id="modalTaskAssignee" placeholder="Assignee">
-        <label class="modal-label">💬 Comment / Follow-up</label>
-        <textarea id="modalTaskComment" class="large-comment" placeholder="Add detailed comments or follow-ups here..."></textarea>
+
+
+        <input
+            type="hidden"
+            id="modalTaskId"
+        >
+
+
+        <label class="modal-label">
+            Task Name
+        </label>
+
+        <input
+            type="text"
+            id="modalTaskName"
+            placeholder="Task Name"
+        >
+
+
+        <label class="modal-label">
+            Description
+        </label>
+
+        <textarea
+            id="modalTaskDesc"
+            placeholder="Description"
+            rows="4"
+        ></textarea>
+
+
+        <label class="modal-label">
+            Assignee
+        </label>
+
+        <input
+            type="text"
+            id="modalTaskAssignee"
+            placeholder="Assignee"
+        >
+
+
+        <label class="modal-label">
+            💬 Comment / Follow-up
+        </label>
+
+        <textarea
+            id="modalTaskComment"
+            class="large-comment"
+            placeholder="Add detailed comments or follow-ups here..."
+        ></textarea>
+
+
         <div class="modal-actions">
-            <button class="cancel-btn" id="cancelModalBtn">Cancel</button>
-            <button class="save-btn" id="saveModalBtn">💾 Save Changes</button>
+
+            <button
+                type="button"
+                class="cancel-btn"
+                id="cancelModalBtn"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                class="save-btn"
+                id="saveModalBtn"
+            >
+                💾 Save Changes
+            </button>
+
         </div>
+
     </div>
+
 </div>
+
+
+<!-- ================= MESSAGE ================= -->
 
 <div id="message"></div>
 
-<!-- FIREBASE -->
+
+<!-- ================= FIREBASE ================= -->
+
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+
 <script>
+
 (function(){
+
 "use strict";
 
-const firebaseConfig={
-    apiKey: "AIzaSyBBUN0is2Fq1KRJihVWeL2MMyi8yX4FAyg",
-    authDomain: "dashboard-jadeed.firebaseapp.com",
-    databaseURL: "https://dashboard-jadeed-default-rtdb.firebaseio.com",
-    projectId: "dashboard-jadeed",
-    storageBucket: "dashboard-jadeed.firebasestorage.app",
-    messagingSenderId: "92287971638",
-    appId: "1:92287971638:web:91b57c91032e7311864397"
+
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyBBUN0is2Fq1KRJihVWeL2MMyi8yX4FAyg",
+
+    authDomain:
+        "dashboard-jadeed.firebaseapp.com",
+
+    databaseURL:
+        "https://dashboard-jadeed-default-rtdb.firebaseio.com",
+
+    projectId:
+        "dashboard-jadeed",
+
+    storageBucket:
+        "dashboard-jadeed.firebasestorage.app",
+
+    messagingSenderId:
+        "92287971638",
+
+    appId:
+        "1:92287971638:web:91b57c91032e7311864397"
 };
 
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
-const tasksRef = db.ref("tasks");
-let allTasks = {};
-let currentFilter = "all";
 
-/* ================= ELEMENTS ================= */
-const taskNameInput = document.getElementById("taskName");
-const taskDescInput = document.getElementById("taskDesc");
-const taskAssigneeInput = document.getElementById("taskAssignee");
-const searchInput = document.getElementById("searchInput");
-const addButton = document.getElementById("addTaskButton");
-const tasksContainer = document.getElementById("tasksContainer");
-const filterButtons = document.querySelectorAll(".filter-btn");
+/* =====================================================
+   INITIALIZE FIREBASE
+===================================================== */
 
-const editModal = document.getElementById("editModal");
-const closeModalBtn = document.getElementById("closeModalBtn");
-const cancelModalBtn = document.getElementById("cancelModalBtn");
-const saveModalBtn = document.getElementById("saveModalBtn");
+try {
 
-/* ================= EVENTS ================= */
-addButton.addEventListener("click", addTask);
-searchInput.addEventListener("input", renderTasks);
+    firebase.initializeApp(firebaseConfig);
 
-filterButtons.forEach(btn => {
-    btn.addEventListener("click", function() {
-        filterButtons.forEach(b => b.classList.remove("active"));
-        this.classList.add("active");
-        currentFilter = this.getAttribute("data-filter");
-        renderTasks();
-    });
-});
+} catch(error) {
 
-closeModalBtn.addEventListener("click", closeModal);
-cancelModalBtn.addEventListener("click", closeModal);
+    console.error("Firebase initialization error:", error);
 
-/* ================= REAL TIME ================= */
-tasksRef.on("value", function(snapshot){
-    allTasks = snapshot.val() || {};
-    updateStats();
-    renderTasks();
-}, function(error){
-    showMessage("Firebase Error: "+error.message, "error");
-});
+    showMessage(
+        "Firebase initialization error: " + error.message,
+        "error"
+    );
 
-/* ================= ADD TASK ================= */
-function addTask(){
-    const name = taskNameInput.value.trim();
-    const desc = taskDescInput.value.trim();
-    const assignee = taskAssigneeInput.value.trim();
-
-    if(!name){ showMessage("Please enter a task name.", "error"); return; }
-
-    addButton.disabled = true; addButton.textContent = "Adding...";
-
-    tasksRef.push({
-        name: name, desc: desc, assignee: assignee, comment: "",
-        completed: false, createdAt: firebase.database.ServerValue.TIMESTAMP
-    }).then(function(){
-        taskNameInput.value = ""; taskDescInput.value = ""; taskAssigneeInput.value = "";
-        showMessage("Task added successfully ✓", "success");
-    }).catch(function(error){ showMessage("Could not add task: "+error.message, "error");
-    }).finally(function(){ addButton.disabled = false; addButton.textContent = "＋ Add Task"; });
+    return;
 }
 
-/* ================= RENDER ================= */
+
+const db = firebase.database();
+
+const tasksRef = db.ref("tasks");
+
+let allTasks = {};
+
+let currentFilter = "all";
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const taskNameInput =
+    document.getElementById("taskName");
+
+const taskDescInput =
+    document.getElementById("taskDesc");
+
+const taskAssigneeInput =
+    document.getElementById("taskAssignee");
+
+const searchInput =
+    document.getElementById("searchInput");
+
+const addButton =
+    document.getElementById("addTaskButton");
+
+const tasksContainer =
+    document.getElementById("tasksContainer");
+
+const filterButtons =
+    document.querySelectorAll(".filter-btn");
+
+
+const editModal =
+    document.getElementById("editModal");
+
+const closeModalBtn =
+    document.getElementById("closeModalBtn");
+
+const cancelModalBtn =
+    document.getElementById("cancelModalBtn");
+
+const saveModalBtn =
+    document.getElementById("saveModalBtn");
+
+
+/* =====================================================
+   EVENTS
+===================================================== */
+
+addButton.addEventListener(
+    "click",
+    addTask
+);
+
+
+searchInput.addEventListener(
+    "input",
+    renderTasks
+);
+
+
+filterButtons.forEach(function(btn){
+
+    btn.addEventListener(
+        "click",
+        function(){
+
+            filterButtons.forEach(function(button){
+
+                button.classList.remove("active");
+
+            });
+
+
+            this.classList.add("active");
+
+
+            currentFilter =
+                this.getAttribute("data-filter");
+
+
+            renderTasks();
+
+        }
+    );
+
+});
+
+
+closeModalBtn.addEventListener(
+    "click",
+    closeModal
+);
+
+
+cancelModalBtn.addEventListener(
+    "click",
+    closeModal
+);
+
+
+/* =====================================================
+   REALTIME FIREBASE
+===================================================== */
+
+tasksRef.on(
+
+    "value",
+
+    function(snapshot){
+
+        allTasks =
+            snapshot.val() || {};
+
+        console.log(
+            "Firebase tasks loaded:",
+            allTasks
+        );
+
+
+        updateStats();
+
+        renderTasks();
+
+    },
+
+    function(error){
+
+        console.error(
+            "Firebase read error:",
+            error
+        );
+
+
+        showMessage(
+            "Firebase Error: " + error.message,
+            "error"
+        );
+
+    }
+
+);
+
+
+/* =====================================================
+   ADD TASK
+===================================================== */
+
+function addTask(){
+
+    const name =
+        taskNameInput.value.trim();
+
+    const desc =
+        taskDescInput.value.trim();
+
+    const assignee =
+        taskAssigneeInput.value.trim();
+
+
+    if(!name){
+
+        showMessage(
+            "Please enter a task name.",
+            "error"
+        );
+
+        taskNameInput.focus();
+
+        return;
+    }
+
+
+    addButton.disabled = true;
+
+    addButton.textContent =
+        "Adding...";
+
+
+    const newTask = {
+
+        name: name,
+
+        desc: desc,
+
+        assignee: assignee,
+
+        comment: "",
+
+        completed: false,
+
+        createdAt:
+            firebase.database.ServerValue.TIMESTAMP
+
+    };
+
+
+    tasksRef.push(newTask)
+
+        .then(function(){
+
+            taskNameInput.value = "";
+
+            taskDescInput.value = "";
+
+            taskAssigneeInput.value = "";
+
+
+            showMessage(
+                "Task added successfully ✓",
+                "success"
+            );
+
+        })
+
+        .catch(function(error){
+
+            console.error(
+                "Add task error:",
+                error
+            );
+
+
+            showMessage(
+                "Could not add task: " +
+                error.message,
+                "error"
+            );
+
+        })
+
+        .finally(function(){
+
+            addButton.disabled = false;
+
+            addButton.textContent =
+                "＋ Add Task";
+
+        });
+
+}
+
+
+/* =====================================================
+   RENDER TASKS
+===================================================== */
+
 function renderTasks(){
+
     tasksContainer.innerHTML = "";
-    const search = searchInput.value.toLowerCase().trim();
-    const entries = Object.entries(allTasks).sort(function(a,b){ return (b[1].createdAt || 0) - (a[1].createdAt || 0); });
+
+
+    const search =
+        searchInput.value
+        .toLowerCase()
+        .trim();
+
+
+    const entries =
+        Object.entries(allTasks)
+        .sort(function(a,b){
+
+            return (
+                (b[1].createdAt || 0) -
+                (a[1].createdAt || 0)
+            );
+
+        });
+
 
     let visible = 0;
 
-    entries.forEach(function(item){
-        const id = item[0];
-        const task = item[1] || {};
-        const isFinish = task.completed === true;
 
-        const searchable = (String(task.name || "") + " " + String(task.desc || "") + " " + String(task.assignee || "") + " " + String(task.comment || "")).toLowerCase();
-        if(search && searchable.indexOf(search) === -1) return;
-        if(currentFilter === "pending" && isFinish) return;
-        if(currentFilter === "finish" && !isFinish) return;
+    entries.forEach(function(item){
+
+        const id =
+            item[0];
+
+        const task =
+            item[1] || {};
+
+
+        const isFinish =
+            task.completed === true;
+
+
+        const searchable =
+
+            String(task.name || "") +
+            " " +
+            String(task.desc || "") +
+            " " +
+            String(task.assignee || "") +
+            " " +
+            String(task.comment || "");
+
+
+        if(
+            search &&
+            searchable
+                .toLowerCase()
+                .indexOf(search) === -1
+        ){
+
+            return;
+
+        }
+
+
+        if(
+            currentFilter === "pending" &&
+            isFinish
+        ){
+
+            return;
+
+        }
+
+
+        if(
+            currentFilter === "finish" &&
+            !isFinish
+        ){
+
+            return;
+
+        }
+
 
         visible++;
 
-        const card = document.createElement("div");
-        card.className = "task-card " + (isFinish ? "finish-card" : "pending-card");
 
-        const top = document.createElement("div");
-        top.className = "task-top";
+        /* ================= CARD ================= */
 
-        const name = document.createElement("div");
-        name.className = "task-name";
-        name.textContent = task.name || "-";
+        const card =
+            document.createElement("div");
 
-        const status = document.createElement("span");
-        status.className = isFinish ? "status finish" : "status pending";
-        status.innerHTML = '<span class="status-dot"></span> ' + (isFinish ? "Finished ✓" : "Pending ⏳");
 
-        top.appendChild(name); top.appendChild(status);
+        card.className =
+            "task-card " +
+            (
+                isFinish
+                ? "finish-card"
+                : "pending-card"
+            );
 
-        const descText = document.createElement("div");
-        descText.className = "info-text";
-        descText.textContent = task.desc ? task.desc.substring(0, 75) + (task.desc.length > 75 ? "..." : "") : "No description provided.";
 
-        const actions = document.createElement("div");
-        actions.className = "task-actions";
+        /* ================= TOP ================= */
 
-        const viewBtn = document.createElement("button");
-        viewBtn.type = "button";
-        viewBtn.className = "action-btn view-btn";
-        viewBtn.textContent = "👁 View & Edit";
-        viewBtn.addEventListener("click", function(){ openModal(id, task); });
+        const top =
+            document.createElement("div");
 
-        // زر التحويل بين (إنهاء / إعادة فتح)
-        const toggleBtn = document.createElement("button");
-        toggleBtn.type = "button";
-        if(isFinish) {
-            toggleBtn.className = "action-btn reopen-btn";
-            toggleBtn.textContent = "🔄 Reopen";
+
+        top.className =
+            "task-top";
+
+
+        const name =
+            document.createElement("div");
+
+
+        name.className =
+            "task-name";
+
+
+        name.textContent =
+            task.name || "-";
+
+
+        const status =
+            document.createElement("span");
+
+
+        status.className =
+            isFinish
+            ? "status finish"
+            : "status pending";
+
+
+        status.innerHTML =
+            '<span class="status-dot"></span> ' +
+            (
+                isFinish
+                ? "Finished ✓"
+                : "Pending ⏳"
+            );
+
+
+        top.appendChild(name);
+
+        top.appendChild(status);
+
+
+        /* ================= DESCRIPTION ================= */
+
+        const descText =
+            document.createElement("div");
+
+
+        descText.className =
+            "info-text";
+
+
+        const desc =
+            String(task.desc || "");
+
+
+        if(desc){
+
+            descText.textContent =
+                desc.length > 120
+                ? desc.substring(0,120) + "..."
+                : desc;
+
         } else {
-            toggleBtn.className = "action-btn done-btn";
-            toggleBtn.textContent = "✓ Finish";
-        }
-        toggleBtn.addEventListener("click", function(){ toggleStatus(id, isFinish); });
 
-        // هنا تم تصحيح الخطأ الإملائي 👇
-        const deleteBtn = document.createElement("button");
-        deleteBtn.type = "button";
-        deleteBtn.className = "action-btn delete-btn";
-        deleteBtn.textContent = "🗑 Delete";
-        deleteBtn.addEventListener("click", function(){ deleteTask(id); });
+            descText.textContent =
+                "No description provided.";
+
+        }
+
+
+        /* ================= ASSIGNEE ================= */
+
+        const assigneeText =
+            document.createElement("div");
+
+
+        assigneeText.className =
+            "assignee-text";
+
+
+        if(task.assignee){
+
+            assigneeText.innerHTML =
+                "👤 Assigned to: <strong>" +
+                escapeHtml(task.assignee) +
+                "</strong>";
+
+        } else {
+
+            assigneeText.textContent =
+                "👤 No assignee";
+
+        }
+
+
+        /* ================= ACTIONS ================= */
+
+        const actions =
+            document.createElement("div");
+
+
+        actions.className =
+            "task-actions";
+
+
+        /* VIEW BUTTON */
+
+        const viewBtn =
+            document.createElement("button");
+
+
+        viewBtn.type =
+            "button";
+
+
+        viewBtn.className =
+            "action-btn view-btn";
+
+
+        viewBtn.textContent =
+            "👁 View & Edit";
+
+
+        viewBtn.addEventListener(
+            "click",
+            function(){
+
+                openModal(
+                    id,
+                    task
+                );
+
+            }
+        );
+
+
+        /* FINISH / REOPEN */
+
+        const toggleBtn =
+            document.createElement("button");
+
+
+        toggleBtn.type =
+            "button";
+
+
+        if(isFinish){
+
+            toggleBtn.className =
+                "action-btn reopen-btn";
+
+
+            toggleBtn.textContent =
+                "🔄 Reopen";
+
+        } else {
+
+            toggleBtn.className =
+                "action-btn done-btn";
+
+
+            toggleBtn.textContent =
+                "✓ Finish";
+
+        }
+
+
+        toggleBtn.addEventListener(
+            "click",
+            function(){
+
+                toggleStatus(
+                    id,
+                    isFinish
+                );
+
+            }
+        );
+
+
+        /* DELETE */
+
+        const deleteBtn =
+            document.createElement("button");
+
+
+        deleteBtn.type =
+            "button";
+
+
+        deleteBtn.className =
+            "action-btn delete-btn";
+
+
+        deleteBtn.textContent =
+            "🗑 Delete";
+
+
+        deleteBtn.addEventListener(
+            "click",
+            function(){
+
+                deleteTask(id);
+
+            }
+        );
+
 
         actions.appendChild(viewBtn);
+
         actions.appendChild(toggleBtn);
+
         actions.appendChild(deleteBtn);
 
+
+        /* ================= COMMENT PREVIEW ================= */
+
+        if(task.comment){
+
+            const commentPreview =
+                document.createElement("div");
+
+
+            commentPreview.style.cssText =
+                "margin-top:10px;" +
+                "padding:10px;" +
+                "background:#f8fafc;" +
+                "border-radius:8px;" +
+                "font-size:12px;" +
+                "color:#64748b;" +
+                "line-height:1.6;" +
+                "white-space:pre-wrap;" +
+                "word-break:break-word;";
+
+
+            commentPreview.textContent =
+                "💬 " +
+                (
+                    String(task.comment).length > 150
+                    ? String(task.comment).substring(0,150) + "..."
+                    : String(task.comment)
+                );
+
+
+            card.appendChild(commentPreview);
+
+        }
+
+
+        /* ================= APPEND ================= */
+
         card.appendChild(top);
+
         card.appendChild(descText);
+
+        card.appendChild(assigneeText);
+
+        card.appendChild(actions);
+
+
+        tasksContainer.appendChild(card);
+
+    });
+
+
+    /* ================= EMPTY ================= */
+
+    if(visible === 0){
+
+        const empty =
+            document.createElement("div");
+
+
+        empty.className =
+            "empty";
+
+
+        empty.innerHTML = `
+            <div class="empty-icon">📋</div>
+            <h3>No tasks found</h3>
+            <p>There are no tasks matching your current filter.</p>
+        `;
+
+
+        tasksContainer.appendChild(empty);
+
+    }
+
+}
+
+
+/* =====================================================
+   UPDATE STATS
+===================================================== */
+
+function updateStats(){
+
+    const entries =
+        Object.values(allTasks);
+
+
+    const total =
+        entries.length;
+
+
+    const finished =
+        entries.filter(function(task){
+
+            return (
+                task &&
+                task.completed === true
+            );
+
+        }).length;
+
+
+    const pending =
+        total - finished;
+
+
+    document.getElementById(
+        "totalTasks"
+    ).textContent =
+        total;
+
+
+    document.getElementById(
+        "pendingTasks"
+    ).textContent =
+        pending;
+
+
+    document.getElementById(
+        "completedTasks"
+    ).textContent =
+        finished;
+
+
+    document.getElementById(
+        "tabCountAll"
+    ).textContent =
+        total;
+
+
+    document.getElementById(
+        "tabCountPending"
+    ).textContent =
+        pending;
+
+
+    document.getElementById(
+        "tabCountFinish"
+    ).textContent =
+        finished;
+
+}
+
+
+/* =====================================================
+   TOGGLE STATUS
+===================================================== */
+
+function toggleStatus(
+    id,
+    isFinish
+){
+
+    const newStatus =
+        !isFinish;
+
+
+    tasksRef
+        .child(id)
+        .update({
+
+            completed:
+                newStatus,
+
+            updatedAt:
+                firebase.database.ServerValue.TIMESTAMP
+
+        })
+
+        .then(function(){
+
+            showMessage(
+
+                newStatus
+                ? "Task finished ✓"
+                : "Task reopened ✓",
+
+                "success"
+
+            );
+
+        })
+
+        .catch(function(error){
+
+            console.error(
+                "Status update error:",
+                error
+            );
+
+
+            showMessage(
+                "Could not update task: " +
+                error.message,
+                "error"
+            );
+
+        });
+
+}
+
+
+/* =====================================================
+   DELETE TASK
+===================================================== */
+
+function deleteTask(id){
+
+    const confirmed =
+        confirm(
+            "Are you sure you want to delete this task?"
+        );
+
+
+    if(!confirmed){
+
+        return;
+
+    }
+
+
+    tasksRef
+        .child(id)
+        .remove()
+
+        .then(function(){
+
+            showMessage(
+                "Task deleted successfully ✓",
+                "success"
+            );
+
+        })
+
+        .catch(function(error){
+
+            console.error(
+                "Delete error:",
+                error
+            );
+
+
+            showMessage(
+                "Could not delete task: " +
+                error.message,
+                "error"
+            );
+
+        });
+
+}
+
+
+/* =====================================================
+   OPEN MODAL
+===================================================== */
+
+function openModal(
+    id,
+    task
+){
+
+    document.getElementById(
+        "modalTaskId"
+    ).value =
+        id;
+
+
+    document.getElementById(
+        "modalTaskName"
+    ).value =
+        task.name || "";
+
+
+    document.getElementById(
+        "modalTaskDesc"
+    ).value =
+        task.desc || "";
+
+
+    document.getElementById(
+        "modalTaskAssignee"
+    ).value =
+        task.assignee || "";
+
+
+    document.getElementById(
+        "modalTaskComment"
+    ).value =
+        task.comment || "";
+
+
+    editModal.classList.add(
+        "active"
+    );
+
+}
+
+
+/* =====================================================
+   CLOSE MODAL
+===================================================== */
+
+function closeModal(){
+
+    editModal.classList.remove(
+        "active"
+    );
+
+}
+
+
+/* =====================================================
+   SAVE MODAL
+===================================================== */
+
+saveModalBtn.addEventListener(
+    "click",
+    function(){
+
+        const id =
+            document.getElementById(
+                "modalTaskId"
+            ).value;
+
+
+        if(!id){
+
+            showMessage(
+                "Task ID not found.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        const name =
+            document.getElementById(
+                "modalTaskName"
+            ).value
+            .trim();
+
+
+        const desc =
+            document.getElementById(
+                "modalTaskDesc"
+            ).value
+            .trim();
+
+
+        const assignee =
+            document.getElementById(
+                "modalTaskAssignee"
+            ).value
+            .trim();
+
+
+        const comment =
+            document.getElementById(
+                "modalTaskComment"
+            ).value;
+
+
+        if(!name){
+
+            showMessage(
+                "Task name is required.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        saveModalBtn.disabled =
+            true;
+
+
+        saveModalBtn.textContent =
+            "Saving...";
+
+
+        tasksRef
+            .child(id)
+            .update({
+
+                name: name,
+
+                desc: desc,
+
+                assignee: assignee,
+
+                comment: comment,
+
+                updatedAt:
+                    firebase.database.ServerValue.TIMESTAMP
+
+            })
+
+            .then(function(){
+
+                showMessage(
+                    "Task updated successfully ✓",
+                    "success"
+                );
+
+
+                closeModal();
+
+            })
+
+            .catch(function(error){
+
+                console.error(
+                    "Save error:",
+                    error
+                );
+
+
+                showMessage(
+                    "Could not update task: " +
+                    error.message,
+                    "error"
+                );
+
+            })
+
+            .finally(function(){
+
+                saveModalBtn.disabled =
+                    false;
+
+
+                saveModalBtn.textContent =
+                    "💾 Save Changes";
+
+            });
+
+    }
+);
+
+
+/* =====================================================
+   CLOSE MODAL WHEN CLICK OUTSIDE
+===================================================== */
+
+editModal.addEventListener(
+    "click",
+    function(e){
+
+        if(
+            e.target === editModal
+        ){
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   ESC CLOSE MODAL
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        if(
+            e.key === "Escape" &&
+            editModal.classList.contains("active")
+        ){
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   ENTER TO ADD TASK
+===================================================== */
+
+taskNameInput.addEventListener(
+    "keydown",
+    function(e){
+
+        if(e.key === "Enter"){
+
+            addTask();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   SHOW MESSAGE
+===================================================== */
+
+function showMessage(
+    text,
+    type
+){
+
+    const message =
+        document.getElementById(
+            "message"
+        );
+
+
+    message.textContent =
+        text;
+
+
+    message.className =
+        type;
+
+
+    message.style.display =
+        "block";
+
+
+    clearTimeout(
+        window.messageTimer
+    );
+
+
+    window.messageTimer =
+        setTimeout(
+            function(){
+
+                message.style.display =
+                    "none";
+
+            },
+            3500
+        );
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHtml(value){
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+})();
+
+</script>
+
+</body>
+</html>
